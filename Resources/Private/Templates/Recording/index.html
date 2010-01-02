@@ -1,0 +1,27 @@
+<f:layout name="default" />
+<f:section name="content">
+	<p>Welcome to Ballroom Dancing!</p>
+	<f:if condition="{recordings}">
+		<f:then>
+			<p>Here is a list of recordings:</p>
+			<dl>
+				<f:for each="{recordings}" as="recording">
+					<dt>
+						{recording.title}
+				<f:for each="{tracks}" as="track">
+						{track.number} {track.medium.title}
+				</f:for>
+					</dt>
+					<dd>
+						<f:format.nl2br>{recording.description}</f:format.nl2br>
+					<dd>
+				</f:for>
+			</dl>
+		</f:then>
+		<f:else>
+			<p>
+				<strong>Sorry! There are no recordings listed on this server.</strong>
+			</p>
+		</f:else>
+	</f:if>
+</f:section>

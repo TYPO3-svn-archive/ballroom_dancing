@@ -1,0 +1,13 @@
+ # Plugin configuration
+plugin.tx_ballroomdancing {
+	settings {
+	}
+	persistence {
+		storagePid = {$plugin.tx_ballroomdancing.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$plugin.tx_ballroomdancing.view.templateRootPath}
+		partialRootPath = {$plugin.tx_ballroomdancing.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_ballroomdancing.view.layoutRootPath}
+	}
+}

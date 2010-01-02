@@ -1,0 +1,24 @@
+<f:layout name="default" />
+<f:section name="content">
+	<p>Welcome to Ballroom Dancing!</p>
+	<f:if condition="{dances}">
+		<f:then>
+			<p>Here is a list of dances:</p>
+			<dl>
+				<f:for each="{dances}" as="dance">
+					<dt>
+						{dance.title} ({dance.type})
+					</dt>
+					<dd>
+						<f:format.nl2br>{dance.description}</f:format.nl2br>
+					<dd>
+				</f:for>
+			</dl>
+		</f:then>
+		<f:else>
+			<p>
+				<strong>Sorry! There are no dances listed on this server.</strong>
+			</p>
+		</f:else>
+	</f:if>
+</f:section>

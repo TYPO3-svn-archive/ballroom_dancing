@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'ballroom_dancing'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_ballroomdancing_domain_model_dance">Dance</label>
+			<label index="tx_ballroomdancing_domain_model_dance.title">Name:</label>
+			<label index="tx_ballroomdancing_domain_model_dance.description">Short description:</label>
+			<label index="tx_ballroomdancing_domain_model_dance.type">Type:</label>
+			<label index="tx_ballroomdancing_domain_model_dance.type.I.1">Standard</label>
+			<label index="tx_ballroomdancing_domain_model_dance.type.I.2">Latin</label>
+			<label index="tx_ballroomdancing_domain_model_medium">Medium</label>
+			<label index="tx_ballroomdancing_domain_model_medium.title">Name:</label>
+			<label index="tx_ballroomdancing_domain_model_medium.description">Short description:</label>
+			<label index="tx_ballroomdancing_domain_model_medium.tracks">Tracks:</label>
+			<label index="tx_ballroomdancing_domain_model_recording">Recording</label>
+			<label index="tx_ballroomdancing_domain_model_recording.artist">Artist:</label>
+			<label index="tx_ballroomdancing_domain_model_recording.description">Short description:</label>
+			<label index="tx_ballroomdancing_domain_model_track">Track</label>
+			<label index="tx_ballroomdancing_domain_model_track.medium">Medium (CD):</label>
+			<label index="tx_ballroomdancing_domain_model_track.recording">Recording:</label>
+			<label index="tx_ballroomdancing_domain_model_track.number">Number:</label>
+		</languageKey>
+	</data>
+</T3locallang>

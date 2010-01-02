@@ -1,0 +1,25 @@
+
+Dance
+	has many figures
+
+Figure
+	has many dances
+
+Medium (CD, DVD, etc)
+	has many tracks
+
+Track
+	is on a medium
+
+Recording
+	is on many tracks
+	is a composition (future)
+	is by an artist (future)
+
+Composition (future)
+	has many recordings
+	is by an composer
+
+Artist (future)
+	has many recordings
+

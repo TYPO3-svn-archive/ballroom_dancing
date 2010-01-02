@@ -1,0 +1,15 @@
+
+plugin.tx_ballroomdancing {
+	view {
+		 # cat=plugin.tx_ballroomdancing/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:ballroomdancing/Resources/Private/Templates/
+		 # cat=plugin.tx_ballroomdancing/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:ballroomdancing/Resources/Private/Partials/
+		 # cat=plugin.tx_ballroomdancing/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:ballroomdancing/Resources/Private/Layouts/
+	}
+	persistence {
+		 # cat=plugin.tx_ballroomdancing//a; type=int+; label=Default storage PID
+		storagePid =
+	}
+}
