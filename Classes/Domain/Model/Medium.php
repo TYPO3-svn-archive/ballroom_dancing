@@ -65,14 +65,22 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Track>
 	 */
-	protected $tracks;
+	// protected $tracks;
+
+	/**
+	 * The recordings that are on the medium.
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Recording>
+	 */
+	protected $recordings;
 
 	/**
 	 * Constructs a new Medium.
 	 *
 	 */
 	public function __construct() {
-		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+		// $this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->recordings = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**

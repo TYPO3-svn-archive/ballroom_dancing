@@ -7,13 +7,15 @@
 			<dl>
 				<f:for each="{recordings}" as="recording">
 					<dt>
-						{recording.title}
-				<f:for each="{tracks}" as="track">
-						{track.number} {track.medium.title}
-				</f:for>
+						{recording.title} (<f:count subject="{recording.media}" />)
 					</dt>
 					<dd>
 						<f:format.nl2br>{recording.description}</f:format.nl2br>
+
+				<f:for each="{recording.media}" as="medium">
+						{medium.title}
+				</f:for>
+
 					<dd>
 				</f:for>
 			</dl>

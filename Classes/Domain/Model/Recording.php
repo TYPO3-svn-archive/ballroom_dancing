@@ -38,7 +38,7 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	 * The recording's title.
 	 *
 	 * @var string
-	 * !!! validate StringLength(minimum = 1, maximum = 255)
+	 * @validate StringLength(minimum = 1, maximum = 255)
 	 */
 	protected $title;
 
@@ -54,14 +54,22 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Track>
 	 */
-	protected $tracks;
+	// protected $tracks;
+
+	/**
+	 * The media the recording is on.
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Medium>
+	 */
+	protected $media;
 
 	/**
 	 * Constructs a new Recording.
 	 *
 	 */
 	public function __construct() {
-		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+		// $this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->media = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -107,8 +115,19 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	 *
 	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
+	 /*
 	public function getTracks() {
 		return $this->tracks;
+	}
+	*/
+
+	/**
+	 * Gets the recording's tracks.
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 */
+	public function getMedia() {
+		return $this->media;
 	}
 
 }
