@@ -61,25 +61,26 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	protected $description;
 
 	/**
+	 * The medium's year of production.
+	 *
+	 * @var integer
+	 * @validate NumberRange(startRange = 1900, endRange = 2100)
+	 */
+	protected $year;
+
+	/**
 	 * The tracks of the medium.
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Track>
+	 * @cascade remove
 	 */
-	// protected $tracks;
-
-	/**
-	 * The recordings that are on the medium.
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Recording>
-	 */
-	protected $recordings;
+	protected $tracks;
 
 	/**
 	 * Constructs a new Medium.
 	 *
 	 */
 	public function __construct() {
-		// $this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->recordings = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
@@ -138,6 +139,62 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	 */
 	public function getDescription() {
 		return $this->description;
+	}
+
+	/**
+	 * Sets the medium's year of production.
+	 *
+	 * @return integer The medium's year
+	 */
+	public function setYear($year) {
+		$this->year = $year;
+	}
+
+	/**
+	 * Returns the medium's year of production.
+	 *
+	 * @return integer The medium's year
+	 */
+	public function getYear() {
+		return $this->year;
+	}
+
+	/**
+	 * Adds a track to the medium.
+	 *
+	 * @param Tx_BlogExample_Domain_Model_Track $track
+	 * @return void
+	 */
+	public function addTrack(Tx_BlogExample_Domain_Model_Track $track) {
+		$this->tracks->attach($track);
+	}
+
+	/**
+	 * Remove a track from the medium.
+	 *
+	 * @param Tx_BlogExample_Domain_Model_Track $trackToRemove The track to be removed
+	 * @return void
+	 */
+	public function removeTrack(Tx_BlogExample_Domain_Model_Track $trackToRemove) {
+		$this->tracks->detach($trackToRemove);
+	}
+
+	/**
+	 * Remove all tracks from the medium.
+	 *
+	 * @return void
+	 */
+	public function removeAllTracks() {
+		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+	}
+
+	/**
+	 * Returns the medium's tracks.
+	 *
+	 * @return string The medium's title
+	 */
+	public function getTracks() {
+		return $this->tracks;
 	}
 
 }

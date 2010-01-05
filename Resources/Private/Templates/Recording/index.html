@@ -1,21 +1,18 @@
 <f:layout name="default" />
 <f:section name="content">
-	<p>Welcome to Ballroom Dancing!</p>
 	<f:if condition="{recordings}">
 		<f:then>
-			<p>Here is a list of recordings:</p>
+			<p>Songs and Dance Pieces:</p>
 			<dl>
 				<f:for each="{recordings}" as="recording">
 					<dt>
-						{recording.title} (<f:count subject="{recording.media}" />)
+						<f:link.action action="show" controller="Recording" arguments="{recording: recording}">{recording.title}</f:link.action>
 					</dt>
 					<dd>
 						<f:format.nl2br>{recording.description}</f:format.nl2br>
-
-				<f:for each="{recording.media}" as="medium">
-						{medium.title}
-				</f:for>
-
+						<f:for each="{recording.tracks}" as="track">
+							<f:link.action action="show" controller="Medium" arguments="{medium: track.medium.uid}">{track.number}. {track.medium.title}</f:link.action>
+						</f:for>
 					<dd>
 				</f:for>
 			</dl>

@@ -9,22 +9,30 @@
 				<el>
 					<switchableControllerActions>
 						<TCEforms>
-							<label>Overwrite default action (example)</label>
+							<label>LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions</label>
 							<config>
 								<type>select</type>
 								<items type="array">
 									<numIndex index="0" type="array">
-										<numIndex index="0">dances</numIndex>
-										<numIndex index="1">Dance->index</numIndex>
+										<numIndex index="0">LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.menu</numIndex>
+										<numIndex index="1">BallroomDancing->index</numIndex>
 									</numIndex>
 									<numIndex index="1" type="array">
-										<numIndex index="0">recordings</numIndex>
-										<numIndex index="1">Recording->index</numIndex>
+										<numIndex index="0">LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.dances</numIndex>
+										<numIndex index="1">Dance->index;Dance->show</numIndex>
+									</numIndex>
+									<numIndex index="2" type="array">
+										<numIndex index="0">LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.recordings</numIndex>
+										<numIndex index="1">Recording->index;Recording->show</numIndex>
+									</numIndex>
+									<numIndex index="3" type="array">
+										<numIndex index="0">LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.media</numIndex>
+										<numIndex index="1">Medium->show</numIndex>
 									</numIndex>
 								</items>
-								<minitems>0</minitems>
-								<maxitems>1</maxitems>
-								<size>1</size>
+								<minitems>1</minitems>
+								<maxitems>20</maxitems>
+								<size>5</size>
 							</config>
 						</TCEforms>
 					</switchableControllerActions>

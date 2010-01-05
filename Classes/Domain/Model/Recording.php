@@ -53,22 +53,15 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	 * The tracks of the media the recording is on.
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Track>
+	 * @cascade remove
 	 */
-	// protected $tracks;
-
-	/**
-	 * The media the recording is on.
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Medium>
-	 */
-	protected $media;
+	protected $tracks;
 
 	/**
 	 * Constructs a new Recording.
 	 *
 	 */
 	public function __construct() {
-		// $this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->media = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
@@ -111,23 +104,41 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	}
 
 	/**
-	 * Gets the recording's tracks.
+	 * Adds a track to the recording.
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 * @param Tx_BlogExample_Domain_Model_Track $track
+	 * @return void
 	 */
-	 /*
-	public function getTracks() {
-		return $this->tracks;
+	public function addTrack(Tx_BlogExample_Domain_Model_Track $track) {
+		$this->tracks->attach($track);
 	}
-	*/
+
+	/**
+	 * Remove a track from the recording.
+	 *
+	 * @param Tx_BlogExample_Domain_Model_Track $trackToRemove The track to be removed
+	 * @return void
+	 */
+	public function removeTrack(Tx_BlogExample_Domain_Model_Track $trackToRemove) {
+		$this->tracks->detach($trackToRemove);
+	}
+
+	/**
+	 * Remove all tracks from the recording.
+	 *
+	 * @return void
+	 */
+	public function removeAllTracks() {
+		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+	}
 
 	/**
 	 * Gets the recording's tracks.
 	 *
 	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
-	public function getMedia() {
-		return $this->media;
+	public function getTracks() {
+		return $this->tracks;
 	}
 
 }

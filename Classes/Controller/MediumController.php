@@ -23,45 +23,34 @@
 ***************************************************************/
 
 /**
- * The recording controller for the Recording package
+ * The media controller for the Ballroom Dancing package
  *
  * @version $Id:$
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
  */
-class Tx_BallroomDancing_Controller_RecordingController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_BallroomDancing_Controller_MediumController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
-	 * @var Tx_BallroomDancing_Domain_Repository_RecordingRepository
+	 * @var Tx_BallroomDancing_Domain_Repository_MediumRepository
 	 */
-	protected $recordingRepository;
+	// protected $mediaRepository;
 
 	/**
-	 * Initializes the current action
+	 * Initializes the current action.
 	 *
 	 * @return void
 	 */
 	public function initializeAction() {
-		$this->recordingRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_RecordingRepository');
+		// $this->mediaRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
 	}
 
 	/**
-	 * Index action for this controller. Displays a list of recordings.
+	 * Action that shows a single medium.
+	 * @param Tx_BallroomDancing_Domain_Model_Medium $medium The medium to display.
 	 *
 	 * @return void
 	 */
-	public function indexAction() {
-		$this->view->assign('recordings', $this->recordingRepository->findAll());
-	}
-
-	/**
-	 * Action that shows a single recording.
-	 * @param Tx_BallroomDancing_Domain_Model_Recording $recording The recording to display.
-	 * @param Tx_BallroomDancing_Domain_Model_Medium $medium A medium on which the recrding is on.
-	 *
-	 * @return void
-	 */
-	public function showAction(Tx_BallroomDancing_Domain_Model_Recording $recording, Tx_BallroomDancing_Domain_Model_Medium $medium=NULL) {
-		$this->view->assign('recording', $recording);
+	public function showAction(Tx_BallroomDancing_Domain_Model_Medium $medium) {
 		$this->view->assign('medium', $medium);
 	}
 

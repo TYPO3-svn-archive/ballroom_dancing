@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************
 *  Copyright notice
 *
@@ -23,36 +24,9 @@
 ***************************************************************/
 
 /**
- * The dance controller for the Dance package
- *
- * @version $Id:$
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
+ * A repository for Media
  */
-class Tx_BallroomDancing_Controller_DanceController extends Tx_Extbase_MVC_Controller_ActionController {
-
-	/**
-	 * @var Tx_BallroomDancing_Domain_Repository_DanceRepository
-	 */
-	protected $danceRepository;
-
-	/**
-	 * Initializes the current action
-	 *
-	 * @return void
-	 */
-	public function initializeAction() {
-		$this->danceRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_DanceRepository');
-	}
-
-	/**
-	 * Index action for this controller. Displays a list of dances.
-	 *
-	 * @return void
-	 */
-	public function indexAction() {
-		$this->view->assign('dances', $this->danceRepository->findAll());
-	}
-
+class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_Extbase_Persistence_Repository {			
 }
 
 ?>

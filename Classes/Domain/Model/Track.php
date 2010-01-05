@@ -43,16 +43,18 @@ class Tx_BallroomDancing_Domain_Model_Track extends Tx_Extbase_DomainObject_Abst
 	protected $number;
 
 	/**
-	 * The recording.
+	 * The recording of the track (a back reference).
 	 *
 	 * @var Tx_BallroomDancing_Domain_Model_Recording
+	 * @lazy
 	 */
 	protected $recording;
 
 	/**
-	 * The medium the track is on.
+	 * The medium the track is on (a back reference).
 	 *
 	 * @var Tx_BallroomDancing_Domain_Model_Medium
+	 * @lazy
 	 */
 	protected $medium;
 
@@ -85,7 +87,7 @@ class Tx_BallroomDancing_Domain_Model_Track extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Sets this track's recording.
 	 *
-	 * @param string $recording The track's recording
+	 * @param Tx_BallroomDancing_Domain_Model_Recording $recording The track's recording
 	 * @return void
 	 */
 	public function setRecording(Tx_BallroomDancing_Domain_Model_Recording $recording) {
@@ -95,10 +97,29 @@ class Tx_BallroomDancing_Domain_Model_Track extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Returns the track's recording.
 	 *
-	 * @return string The track's recording
+	 * @return Tx_BallroomDancing_Domain_Model_Recording The track's recording
 	 */
 	public function getRecording() {
 		return $this->recording;
+	}
+
+	/**
+	 * Sets this track's medium.
+	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Medium $medium The track's medium
+	 * @return void
+	 */
+	public function setMedium(Tx_BallroomDancing_Domain_Model_Medium $medium) {
+		$this->medium = $medium;
+	}
+
+	/**
+	 * Returns the track's medium.
+	 *
+	 * @return Tx_BallroomDancing_Domain_Model_Medium The track's medium
+	 */
+	public function getMedium() {
+		return $this->medium;
 	}
 
 }

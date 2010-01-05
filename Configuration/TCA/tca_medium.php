@@ -25,7 +25,7 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 			)
 		),
 		'description' => array(
-			'exclude' => 1,
+			'exclude' => 0,
 			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.description',
 			'config'  => array(
 				'type' => 'text',
@@ -34,6 +34,16 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 				'cols' => 80,
 			)
 		),
+		'year' => array(
+			'exclude' => 0,
+			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.year',
+			'config'  => array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int',
+			)
+		),
+/*
 		'recordings' => Array (
 			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.tracks',
 			'config' => Array (
@@ -44,16 +54,15 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 				'maxitems' => 50,
 			),
 		),
-/* DOESN'T WORK WITH EXTBASE YET
+*/
 		'tracks' => Array (
 			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.tracks',
 			'config' => Array (
 				'type' => 'inline',
 				'foreign_table' => 'tx_ballroomdancing_domain_model_track',
 				'foreign_field' => 'medium',
-				'foreign_label' => 'recording',
-				'foreign_selector' => 'recording',
 				'foreign_unique' => 'recording',
+				'foreign_selector' => 'recording',
 				'maxitems' => 50,
 				'appearance' => Array (
 					'collapseAll' => 1,
@@ -61,10 +70,9 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 				),
 			),
 		),
-*/
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden,title,type,description;;;;1-1-1,recordings;;;;1-1-1')
+		'1' => array('showitem' => 'hidden,title,type,description;;;;1-1-1,year,tracks;;;;1-1-1')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

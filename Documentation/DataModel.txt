@@ -10,6 +10,7 @@ Medium (CD, DVD, etc)
 
 Track
 	is on a medium
+	has a recording
 
 Recording
 	is on many tracks
