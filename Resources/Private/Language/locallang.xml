@@ -7,7 +7,12 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="general.ballroomDancing">Ballroom Dancing</label>
+			<label index="general.dance">dance</label>
+			<label index="general.dances">dances</label>
+			<label index="general.figure">figure</label>
+			<label index="general.figures">figures</label>
 			<label index="dance.list">List Dances</label>
+			<label index="figure.list">List Figures</label>
 			<label index="recording.list">List Recordings</label>
 		</languageKey>
 	</data>

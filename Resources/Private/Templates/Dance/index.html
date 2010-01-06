@@ -6,10 +6,11 @@
 			<dl class="tx-ballroomdancing-list">
 				<f:for each="{dances}" as="dance">
 					<dt>
-						{dance.title} ({dance.type})
+						{dance.title}
 					</dt>
 					<dd>
-						<f:format.nl2br>{dance.description}</f:format.nl2br>
+						<f:format.nl2br>{dance.description}</f:format.nl2br><br/>
+						<f:count subject="{dance.figures}" /> figures
 					<dd>
 				</f:for>
 			</dl>

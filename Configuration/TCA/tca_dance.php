@@ -46,9 +46,19 @@ $TCA['tx_ballroomdancing_domain_model_dance'] = array(
 				),
 			)
 		),
+		'figures' => Array (
+			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_dance.figures',
+			'config' => Array (
+				'type' => 'select',
+				'foreign_table' => 'tx_ballroomdancing_domain_model_figure',
+				'MM' => 'tx_ballroomdancing_domain_dance_figure_mm',
+				'size' => 20,
+				'maxitems' => 100,
+			),
+		),
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden,title,type,description;;;;1-1-1')
+		'1' => array('showitem' => 'hidden,title,type,description;;;;1-1-1,figures;;;;1-1-1')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

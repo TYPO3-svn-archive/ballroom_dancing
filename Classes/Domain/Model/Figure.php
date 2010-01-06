@@ -24,7 +24,7 @@
 ***************************************************************/
 
 /**
- * A dance
+ * A dance figure
  *
  * @version $Id:$
  * @copyright Copyright belongs to the respective authors
@@ -32,91 +32,62 @@
  * @scope prototype
  * @entity
  */
-class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_AbstractEntity {
-
-	const TYPE_STANDARD = 1;
-	const TYPE_LATIN = 2;
+class Tx_BallroomDancing_Domain_Model_Figure extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * The dance's title.
+	 * The figure's name.
 	 *
 	 * @var string
-	 * @validate StringLength(minimum = 10, maximum = 255)
+	 * validate StringLength(minimum = 10, maximum = 255)
 	 */
-	protected $title = '';
+	protected $name;
 
 	/**
-	 * The dance's type.
-	 *
-	 * @var integer
-	 */
-	protected $type = 0;
-
-	/**
-	 * A short description of the dance.
+	 * A short description of the figure.
 	 *
 	 * @var string
 	 */
-	protected $description = '';
+	protected $description;
 
 	/**
-	 * The figures of the danced.
+	 * The dances the figure can be danced in.
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Figure>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Dance>
 	 * @lazy
 	 */
-	protected $figures;
+	protected $dances;
 
 	/**
-	 * Constructs a new Dance.
+	 * Constructs a new Figure.
 	 *
 	 */
 	public function __construct() {
-		// $this->posts = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
-	 * Sets this dance's title.
+	 * Sets this figure's name.
 	 *
-	 * @param string $title The dance's title
+	 * @param string $name The figure's name
 	 * @return void
 	 */
-	public function setTitle($title) {
-		$this->title = $title;
+	public function setName($name) {
+		$this->name = $name;
 	}
 
 	/**
-	 * Returns the dance's title.
+	 * Returns the figure's name.
 	 *
-	 * @return string The dance's title
+	 * @return string The figure's name
 	 */
-	public function getTitle() {
-		return $this->title;
+	public function getName() {
+		return $this->name;
 	}
 
 	/**
-	 * Sets this dance's type.
+	 * Sets the description for the figure.
 	 *
-	 * @param string $title The dance's type.
-	 * @return void
-	 */
-	public function setType($type) {
-		$this->type = $type;
-	}
-
-	/**
-	 * Returns the dance's type.
-	 *
-	 * @return string The dance's type.
-	 */
-	public function getType() {
-		return $this->type;
-	}
-
-	/**
-	 * Sets the description for the dance.
-	 *
-	 * @param string $description The dance's description.
+	 * @param string $description
 	 * @return void
 	 */
 	public function setDescription($description) {
@@ -124,21 +95,21 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	}
 
 	/**
-	 * Returns the description for the dance.
+	 * Returns the description for the figure.
 	 *
-	 * @return string The dance's description.
+	 * @return string
 	 */
 	public function getDescription() {
 		return $this->description;
 	}
 
 	/**
-	 * Returns the figures of the dance.
+	 * Gets the figure's dances.
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage The dance's figures.
+	 * @return Tx_Extbase_Persistence_ObjectStorage
 	 */
-	public function getFigures() {
-		return $this->figures;
+	public function getDances() {
+		return $this->dances;
 	}
 
 }

@@ -13,6 +13,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_dance (
 	title varchar(255) DEFAULT '' NOT NULL,
 	description mediumtext NOT NULL,
 	type tinyint(4) DEFAULT '0' NOT NULL,
+	figures int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -29,13 +30,14 @@ CREATE TABLE tx_ballroomdancing_domain_model_figure (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
+	name varchar(255) DEFAULT '' NOT NULL,
 	description mediumtext NOT NULL,
+	dances int(11) DEFAULT '0' NOT NULL,
 	turn tinyint(4) DEFAULT '0' NOT NULL,
 	origin int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY parent (pid,title),
 );
 
 #
@@ -57,7 +59,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_medium (
 	tracks int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY parent (pid,title),
 );
 
 #
@@ -80,7 +82,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_recording (
 	tracks int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY parent (pid,title),
 );
 
 
@@ -100,5 +102,18 @@ CREATE TABLE tx_ballroomdancing_domain_model_track (
 	number tinyint(4) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY parent (pid,medium,number),
+);
+
+#
+# Table structure for table 'tx_ballroomdancing_domain_dance_figure_mm'
+#
+CREATE TABLE tx_ballroomdancing_domain_dance_figure_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local,sorting),
+	KEY uid_foreign (uid_foreign,sorting_foreign)
 );

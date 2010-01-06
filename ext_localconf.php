@@ -12,6 +12,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	array(																			// An array holding the controller-action-combinations that are accessible 
 		'BallroomDancing' => 'index',														// The first controller and its first action will be the default 
 		'Dance' => 'index,show',
+		'Figure' => 'index,show',
 		'Medium' => 'show', //,new,create,edit,update',
 		'Recording' => 'index,show', //,new,create,edit,update',
 	),

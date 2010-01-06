@@ -1,0 +1,24 @@
+<f:layout name="default" />
+<f:section name="content">
+	<f:if condition="{figures}">
+		<f:then>
+			<h3>Figures:</h3>
+			<dl class="tx-ballroomdancing-list">
+				<f:for each="{figures}" as="figure">
+					<dt>
+						{figure.name}
+					</dt>
+					<dd>
+						<f:format.nl2br>{figure.description}</f:format.nl2br><br/>
+						<f:count subject="{figure.dances}" /> dances
+					<dd>
+				</f:for>
+			</dl>
+		</f:then>
+		<f:else>
+			<p class="tx-ballroomdancing-problem">
+				<strong>Sorry! There are no figures listed on this server.</strong>
+			</p>
+		</f:else>
+	</f:if>
+</f:section>

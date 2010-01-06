@@ -56,6 +56,21 @@ $TCA['tx_ballroomdancing_domain_model_dance'] = array (
 	)
 );
 
+$TCA['tx_ballroomdancing_domain_model_figure'] = array (
+	'ctrl' => array (
+		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_figure',
+		'label' 			=> 'name',
+		'tstamp' 			=> 'tstamp',
+		'crdate' 			=> 'crdate',
+		'delete' 			=> 'deleted',
+		'enablecolumns' 	=> array(
+			'disabled' => 'hidden'
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_figure.php',
+		// 'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_ballroomdancing_domain_model_figure.gif'
+	)
+);
+
 $TCA['tx_ballroomdancing_domain_model_medium'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium',
