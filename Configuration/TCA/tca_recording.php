@@ -44,19 +44,6 @@ $TCA['tx_ballroomdancing_domain_model_recording'] = array(
 				'cols' => 80,
 			)
 		),
-/*
-		'media' => Array (
-			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_recording.tracks',
-			'config' => Array (
-				'type' => 'select',
-				'foreign_table' => 'tx_ballroomdancing_domain_model_medium',
-				'MM' => 'tx_ballroomdancing_medium_recording_mm',
-				'MM_opposite_field' => 'recordings',
-				'size' => 4,
-				'maxitems' => 20,
-			),
-		),
-*/
 		'tracks' => Array (
 			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_recording.tracks',
 			'config' => Array (		
