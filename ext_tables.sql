@@ -55,7 +55,6 @@ CREATE TABLE tx_ballroomdancing_domain_model_medium (
 	description mediumtext NOT NULL,
 	year mediumint(4) DEFAULT '0' NOT NULL,
 	tracks int(11) DEFAULT '0' NOT NULL,
-#	recordings int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -79,7 +78,6 @@ CREATE TABLE tx_ballroomdancing_domain_model_recording (
 	dance int(11) DEFAULT '0' NOT NULL,
 	mpm tinyint(4) DEFAULT '0' NOT NULL,
 	tracks int(11) DEFAULT '0' NOT NULL,
-#	media int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid),
@@ -104,11 +102,3 @@ CREATE TABLE tx_ballroomdancing_domain_model_track (
 	PRIMARY KEY (uid),
 	KEY parent (pid),
 );
-
-# TEMPORARY (until IRRE works with ExtBase)
-#CREATE TABLE tx_ballroomdancing_medium_recording_mm (
-#	uid_local int(11) DEFAULT '0' NOT NULL,
-#	uid_foreign int(11) DEFAULT '0' NOT NULL,
-#	sorting int(11) DEFAULT '0' NOT NULL,
-#	sorting_foreign int(11) DEFAULT '0' NOT NULL,
-#);
