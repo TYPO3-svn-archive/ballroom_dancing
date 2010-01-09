@@ -1,3 +1,4 @@
+{namespace dance=Tx_BallroomDancing_ViewHelpers}
 <f:layout name="default" />
 <f:section name="content">
 	<f:if condition="{figures}">
@@ -5,12 +6,10 @@
 			<h3>Figures:</h3>
 			<dl class="tx-ballroomdancing-list">
 				<f:for each="{figures}" as="figure">
-					<dt>
-						{figure.name}
-					</dt>
+					<dt>{figure.name}</dt>
 					<dd>
 						<f:format.nl2br>{figure.description}</f:format.nl2br><br/>
-						<f:count subject="{figure.dances}" /> dances
+						Dance: <dance:join each="{figure.dances}" as="dance" by=", ">{dance.name}</dance:join>
 					<dd>
 				</f:for>
 			</dl>
