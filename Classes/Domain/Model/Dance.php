@@ -38,12 +38,12 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	const TYPE_LATIN = 2;
 
 	/**
-	 * The dance's title.
+	 * The dance's name.
 	 *
 	 * @var string
 	 * @validate StringLength(minimum = 10, maximum = 255)
 	 */
-	protected $title = '';
+	protected $name = '';
 
 	/**
 	 * The dance's type.
@@ -76,28 +76,28 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	}
 
 	/**
-	 * Sets this dance's title.
+	 * Sets this dance's name.
 	 *
-	 * @param string $title The dance's title
+	 * @param string $name The dance's name
 	 * @return void
 	 */
-	public function setTitle($title) {
-		$this->title = $title;
+	public function setName($name) {
+		$this->name = $name;
 	}
 
 	/**
-	 * Returns the dance's title.
+	 * Returns the dance's name.
 	 *
-	 * @return string The dance's title
+	 * @return string The dance's name
 	 */
-	public function getTitle() {
-		return $this->title;
+	public function getName() {
+		return $this->name;
 	}
 
 	/**
 	 * Sets this dance's type.
 	 *
-	 * @param string $title The dance's type.
+	 * @param string $type The dance's type.
 	 * @return void
 	 */
 	public function setType($type) {

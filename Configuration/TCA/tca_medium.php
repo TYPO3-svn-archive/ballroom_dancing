@@ -16,7 +16,7 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 		),
 		'title' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.title',
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.title',
 			'config'  => array(
 				'type' => 'input',
 				'size' => 20,
@@ -26,7 +26,7 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 		),
 		'description' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.description',
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.description',
 			'config'  => array(
 				'type' => 'text',
 				'eval' => 'required',

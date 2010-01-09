@@ -10,7 +10,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_dance (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
+	name varchar(255) DEFAULT '' NOT NULL,
 	description mediumtext NOT NULL,
 	type tinyint(4) DEFAULT '0' NOT NULL,
 	figures int(11) DEFAULT '0' NOT NULL,

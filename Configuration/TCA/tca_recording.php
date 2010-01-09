@@ -17,7 +17,7 @@ $TCA['tx_ballroomdancing_domain_model_recording'] = array(
 		// to be replaced by a reference to a Composition (song)
 		'title' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.title',
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.title',
 			'config'  => array(
 				'type' => 'input',
 				'size' => 20,
@@ -37,7 +37,7 @@ $TCA['tx_ballroomdancing_domain_model_recording'] = array(
 		),
 		'description' => array(
 			'exclude' => 1,
-			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_recording.description',
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.description',
 			'config'  => array(
 				'type' => 'text',
 				'rows' => 30,
