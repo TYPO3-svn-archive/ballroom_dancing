@@ -3,7 +3,7 @@ Dance
 	has many figures
 
 Figure
-	has many dances
+	has many dances *
 
 Medium (CD, DVD, etc)
 	has many tracks
@@ -24,3 +24,6 @@ Composition (future)
 Artist (future)
 	has many recordings
 
+---
+
+* actually the timing and a few details may be different, so the exact description of the figure will vary from dance to dance.
