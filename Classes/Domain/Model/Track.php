@@ -38,7 +38,7 @@ class Tx_BallroomDancing_Domain_Model_Track extends Tx_Extbase_DomainObject_Abst
 	 * The track's number.
 	 *
 	 * @var integer
-	 * validate
+	 * @validate NumberRange(startRange = 1, endRange = 100)
 	 */
 	protected $number;
 
