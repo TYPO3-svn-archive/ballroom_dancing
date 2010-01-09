@@ -44,7 +44,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript/Pi1', 'Dances');
 $TCA['tx_ballroomdancing_domain_model_dance'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_dance',
-		'label' 			=> 'title',
+		'label' 			=> 'name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'delete' 			=> 'deleted',
