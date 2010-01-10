@@ -24,7 +24,7 @@
 ***************************************************************/
 
 /**
- * A medium
+ * An audio medium
  *
  * @version $Id:$
  * @copyright Copyright belongs to the respective authors
@@ -32,7 +32,7 @@
  * @scope prototype
  * @entity
  */
-class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_Domain_Model_Medium {
+class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObject_AbstractMedium {
 
 	const TYPE_CD = 1;		// Compact Disc
 	const TYPE_SACD = 2;	// Super Audio CD

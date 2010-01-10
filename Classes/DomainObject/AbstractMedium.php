@@ -24,15 +24,13 @@
 ***************************************************************/
 
 /**
- * A medium
+ * An abstract medium
  *
  * @version $Id:$
  * @copyright Copyright belongs to the respective authors
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
- * @scope prototype
- * @entity
  */
-abstract class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_AbstractEntity {
+abstract class Tx_BallroomDancing_DomainObject_AbstractMedium extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * The medium's title.
