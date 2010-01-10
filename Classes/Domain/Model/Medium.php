@@ -34,9 +34,9 @@
  */
 class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_AbstractEntity {
 
-	const TYPE_CD = 1;
-	const TYPE_DVD = 2;
-	const TYPE_BOOK = 3;
+	const TYPE_CD = 1;		// Compact Disc
+	const TYPE_SACD = 2;	// Super Audio CD
+	const TYPE_DVD = 3;		// DVD Audio
 
 	/**
 	 * The medium's title.
