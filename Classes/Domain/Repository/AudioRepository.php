@@ -24,9 +24,9 @@
 ***************************************************************/
 
 /**
- * A repository for Media
+ * A repository for Audio Media
  */
-class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_Extbase_Persistence_Repository {			
+class Tx_BallroomDancing_Domain_Repository_AudioRepository extends Tx_Extbase_Persistence_Repository {			
 }
 
 ?>
