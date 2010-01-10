@@ -11,7 +11,7 @@
 					<dd>
 						<f:format.nl2br>{recording.description}</f:format.nl2br>
 						<f:for each="{recording.tracks}" as="track">
-							<f:link.action action="show" controller="Medium" arguments="{medium: track.medium.uid}">{track.number}. {track.medium.title}</f:link.action>
+							<f:link.action action="show" controller="Audio" arguments="{audio: track.audio.uid}">{track.number}. {track.audio.title}</f:link.action>
 						</f:for>
 					<dd>
 				</f:for>

@@ -39,11 +39,11 @@ class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObj
 	const TYPE_DVD = 3;		// DVD Audio
 
 	/**
-	 * The audio medium's type.
+	 * The medium type is 'audio'.
 	 *
-	 * @var integer
+	 * @var string
 	 */
-	protected $type;
+	private $type = 'audio';
 
 	/**
 	 * The tracks of the audio medium.

@@ -23,17 +23,17 @@
 ***************************************************************/
 
 /**
- * The media controller for the Ballroom Dancing package
+ * The audio media controller for the Ballroom Dancing package
  *
  * @version $Id:$
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
  */
-class Tx_BallroomDancing_Controller_MediumController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_BallroomDancing_Controller_AudioController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
 	 * @var Tx_BallroomDancing_Domain_Repository_MediumRepository
 	 */
-	// protected $mediaRepository;
+	// protected $audioRepository;
 
 	/**
 	 * Initializes the current action.
@@ -41,17 +41,17 @@ class Tx_BallroomDancing_Controller_MediumController extends Tx_Extbase_MVC_Cont
 	 * @return void
 	 */
 	public function initializeAction() {
-		// $this->mediaRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
+		// $this->audioRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_AudioRepository');
 	}
 
 	/**
-	 * Action that shows a single medium.
-	 * @param Tx_BallroomDancing_Domain_Model_Medium $medium The medium to display.
+	 * Action that shows a single audio medium.
+	 * @param Tx_BallroomDancing_Domain_Model_Audio $audio The audio medium to display.
 	 *
 	 * @return void
 	 */
-	public function showAction(Tx_BallroomDancing_Domain_Model_Medium $medium) {
-		$this->view->assign('medium', $medium);
+	public function showAction(Tx_BallroomDancing_Domain_Model_Audio $audio) {
+		$this->view->assign('audio', $audio);
 	}
 
 }

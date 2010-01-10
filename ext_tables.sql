@@ -51,7 +51,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_medium (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	type tinyint(4) DEFAULT '0' NOT NULL,
+	type varchar(10) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	artist varchar(255) DEFAULT '' NOT NULL,
 	description mediumtext NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_track (
 	cruser_id int(11) DEFAULT '0' NOT NULL,
 	deleted tinyint(4) DEFAULT '0' NOT NULL,
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
-	medium int(11) DEFAULT '0' NOT NULL,
+	audio int(11) DEFAULT '0' NOT NULL,
 	recording int(11) DEFAULT '0' NOT NULL,
 	number tinyint(4) DEFAULT '0' NOT NULL,
 

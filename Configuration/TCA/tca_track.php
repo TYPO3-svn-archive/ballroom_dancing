@@ -4,7 +4,7 @@ if (!defined ('TYPO3_MODE')) 	die ('Access denied.');
 $TCA['tx_ballroomdancing_domain_model_track'] = array(
 	'ctrl' => $TCA['tx_ballroomdancing_domain_model_track']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'hidden,number,medium,recording,'
+		'showRecordFieldList' => 'hidden,number,audio,recording,'
 	),
 	'columns' => array(
 		'hidden' => array(
@@ -14,13 +14,13 @@ $TCA['tx_ballroomdancing_domain_model_track'] = array(
 				'type' => 'check'
 			)
 		),
-		'medium' => array(
+		'audio' => array(
 			'exclude' => 0,
-			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_track.medium',
+			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_track.audio',
 			'config'  => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_ballroomdancing_domain_model_medium',
-				'foreign_class' => 'Tx_BallroomDancing_Domain_Model_Medium',	// for the ExtBase data mapper
+				'foreign_class' => 'Tx_BallroomDancing_Domain_Model_Audio',	// for the ExtBase data mapper
 			)
 		),
 		'recording' => array(
@@ -44,7 +44,7 @@ $TCA['tx_ballroomdancing_domain_model_track'] = array(
 		),
 	),
 	'types' => array(
-		'1' => array('showitem' => 'number,medium;;;;1-1-1,recording,hidden;;;;1-1-1')
+		'1' => array('showitem' => 'number,audio;;;;1-1-1,recording,hidden;;;;1-1-1')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

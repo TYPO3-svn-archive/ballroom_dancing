@@ -62,7 +62,7 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	 *
 	 */
 	public function __construct() {
-		$this->media = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**

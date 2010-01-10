@@ -14,8 +14,16 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 				'type' => 'check'
 			)
 		),
+		'type' => array(
+			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.type',
+			'config'  => array(
+				'type' => 'select',
+				'items'  => array(
+					array('LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.type.I.audio', 'audio'),
+				),
+			)
+		),
 		'title' => array(
-			'exclude' => 0,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.title',
 			'config'  => array(
 				'type' => 'input',
@@ -25,7 +33,6 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 			)
 		),
 		'description' => array(
-			'exclude' => 0,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.description',
 			'config'  => array(
 				'type' => 'text',
@@ -43,12 +50,13 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 				'eval' => 'int',
 			)
 		),
+		// for the type "audio"
 		'tracks' => Array (
 			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.tracks',
 			'config' => Array (
 				'type' => 'inline',
 				'foreign_table' => 'tx_ballroomdancing_domain_model_track',
-				'foreign_field' => 'medium',
+				'foreign_field' => 'audio',
 				'foreign_unique' => 'recording',
 				'foreign_selector' => 'recording',
 				'maxitems' => 50,
@@ -60,7 +68,8 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 		),
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden,title,type,description;;;;1-1-1,year,tracks;;;;1-1-1')
+		'default' => array('showitem' => 'hidden,type,title,description;;;;1-1-1,year'),
+		'audio' => array('showitem' => 'hidden,title,description;;;;1-1-1,year,tracks;;;;1-1-1')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

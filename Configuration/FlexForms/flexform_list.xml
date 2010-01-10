@@ -30,8 +30,8 @@
 										<numIndex index="1">Recording->index;Recording->show</numIndex>
 									</numIndex>
 									<numIndex index="4" type="array">
-										<numIndex index="0">LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.media</numIndex>
-										<numIndex index="1">Medium->show</numIndex>
+										<numIndex index="0">LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.audio</numIndex>
+										<numIndex index="1">Audio->show</numIndex>
 									</numIndex>
 								</items>
 								<minitems>1</minitems>

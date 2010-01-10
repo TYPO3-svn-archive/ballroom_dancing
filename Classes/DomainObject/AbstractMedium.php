@@ -33,6 +33,14 @@
 abstract class Tx_BallroomDancing_DomainObject_AbstractMedium extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
+	 * The medium's type.
+	 *
+	 * @var string
+	 * @validate StringLength(minimum = 1, maximum = 10)
+	 */
+	private $type;
+
+	/**
 	 * The medium's title.
 	 *
 	 * @var string
