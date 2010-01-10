@@ -68,7 +68,7 @@ class Tx_BallroomDancing_Domain_Model_Figure extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Sets this figure's name.
 	 *
-	 * @param string $name The figure's name
+	 * @param string $name The name of the figure
 	 * @return void
 	 */
 	public function setName($name) {
@@ -78,16 +78,16 @@ class Tx_BallroomDancing_Domain_Model_Figure extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Returns the figure's name.
 	 *
-	 * @return string The figure's name
+	 * @return string The name of the figure
 	 */
 	public function getName() {
 		return $this->name;
 	}
 
 	/**
-	 * Sets the description for the figure.
+	 * Sets the figure's description.
 	 *
-	 * @param string $description
+	 * @param string $description The description for the figure
 	 * @return void
 	 */
 	public function setDescription($description) {
@@ -95,9 +95,9 @@ class Tx_BallroomDancing_Domain_Model_Figure extends Tx_Extbase_DomainObject_Abs
 	}
 
 	/**
-	 * Returns the description for the figure.
+	 * Returns the figure's description.
 	 *
-	 * @return string
+	 * @return string The description for the figure
 	 */
 	public function getDescription() {
 		return $this->description;
@@ -106,7 +106,7 @@ class Tx_BallroomDancing_Domain_Model_Figure extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Gets the figure's dances.
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage
+	 * @return Tx_Extbase_Persistence_ObjectStorage The dances of the figure
 	 */
 	public function getDances() {
 		return $this->dances;
