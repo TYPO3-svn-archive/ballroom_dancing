@@ -62,7 +62,7 @@ class Tx_BallroomDancing_Domain_Model_Figure extends Tx_Extbase_DomainObject_Abs
 	 *
 	 */
 	public function __construct() {
-		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->dances = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
