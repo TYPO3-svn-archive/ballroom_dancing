@@ -81,7 +81,7 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	 *
 	 */
 	public function __construct() {
-		$this->recordings = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -191,7 +191,7 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Returns the medium's tracks.
 	 *
-	 * @return string The medium's title
+	 * @return string The tracks of the medium
 	 */
 	public function getTracks() {
 		return $this->tracks;
