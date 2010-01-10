@@ -32,11 +32,7 @@
  * @scope prototype
  * @entity
  */
-class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_AbstractEntity {
-
-	const TYPE_CD = 1;		// Compact Disc
-	const TYPE_SACD = 2;	// Super Audio CD
-	const TYPE_DVD = 3;		// DVD Audio
+abstract class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * The medium's title.
@@ -45,13 +41,6 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	 * @validate StringLength(minimum = 1, maximum = 255)
 	 */
 	protected $title;
-
-	/**
-	 * The medium's type.
-	 *
-	 * @var integer
-	 */
-	protected $type;
 
 	/**
 	 * A short description of the medium.
@@ -69,14 +58,6 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	protected $year;
 
 	/**
-	 * The tracks of the medium.
-	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Track>
-	 * @cascade remove
-	 */
-	protected $tracks;
-
-	/**
 	 * Constructs a new Medium.
 	 *
 	 */
@@ -87,7 +68,7 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Sets this medium's title.
 	 *
-	 * @param string $title The medium's title
+	 * @param string $title The title of the medium
 	 * @return void
 	 */
 	public function setTitle($title) {
@@ -97,35 +78,16 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Returns the medium's title.
 	 *
-	 * @return string The medium's title
+	 * @return string The title of the medium
 	 */
 	public function getTitle() {
 		return $this->title;
 	}
 
 	/**
-	 * Sets this medium's type.
+	 * Sets the medium's description.
 	 *
-	 * @param string $title The medium's title
-	 * @return void
-	 */
-	public function setType($type) {
-		$this->type = $type;
-	}
-
-	/**
-	 * Returns the medium's type.
-	 *
-	 * @return string The medium's title
-	 */
-	public function getType() {
-		return $this->type;
-	}
-
-	/**
-	 * Sets the description for the medium.
-	 *
-	 * @param string $description
+	 * @param string $description The description for the medium
 	 * @return void
 	 */
 	public function setDescription($description) {
@@ -133,9 +95,9 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	}
 
 	/**
-	 * Returns the description for the medium.
+	 * Returns the medium's description.
 	 *
-	 * @return string
+	 * @return string The description for the medium
 	 */
 	public function getDescription() {
 		return $this->description;
@@ -144,7 +106,7 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Sets the medium's year of production.
 	 *
-	 * @return integer The medium's year
+	 * @return integer The production year of the medium
 	 */
 	public function setYear($year) {
 		$this->year = $year;
@@ -153,48 +115,10 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Returns the medium's year of production.
 	 *
-	 * @return integer The medium's year
+	 * @return integer The production year of the medium
 	 */
 	public function getYear() {
 		return $this->year;
-	}
-
-	/**
-	 * Adds a track to the medium.
-	 *
-	 * @param Tx_BlogExample_Domain_Model_Track $track
-	 * @return void
-	 */
-	public function addTrack(Tx_BlogExample_Domain_Model_Track $track) {
-		$this->tracks->attach($track);
-	}
-
-	/**
-	 * Remove a track from the medium.
-	 *
-	 * @param Tx_BlogExample_Domain_Model_Track $trackToRemove The track to be removed
-	 * @return void
-	 */
-	public function removeTrack(Tx_BlogExample_Domain_Model_Track $trackToRemove) {
-		$this->tracks->detach($trackToRemove);
-	}
-
-	/**
-	 * Remove all tracks from the medium.
-	 *
-	 * @return void
-	 */
-	public function removeAllTracks() {
-		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
-	}
-
-	/**
-	 * Returns the medium's tracks.
-	 *
-	 * @return string The tracks of the medium
-	 */
-	public function getTracks() {
-		return $this->tracks;
 	}
 
 }
