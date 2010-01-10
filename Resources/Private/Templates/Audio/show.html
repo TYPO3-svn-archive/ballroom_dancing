@@ -1,0 +1,16 @@
+<f:layout name="default" />
+<f:section name="content">
+	<div class="tx-ballroomdancing-item">
+		<h3>{medium.title}</h3>
+		<p><f:format.nl2br>{medium.description}</f:format.nl2br></p>
+		<f:if condition="{medium.tracks}">
+			<ul class="tx-ballroomdancing-related-list">
+				<f:for each="{medium.tracks}" as="track">
+					<li>
+						<f:link.action action="show" controller="Recording" arguments="{recording: track.recording, medium: medium}">{track.recording.title}</f:link.action>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</div>
+</f:section>
