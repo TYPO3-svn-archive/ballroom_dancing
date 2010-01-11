@@ -53,9 +53,10 @@ CREATE TABLE tx_ballroomdancing_domain_model_medium (
 	hidden tinyint(4) DEFAULT '0' NOT NULL,
 	type varchar(10) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
+	author varchar(255) DEFAULT '' NOT NULL,
 	artist varchar(255) DEFAULT '' NOT NULL,
 	description mediumtext NOT NULL,
-	year mediumint(4) DEFAULT '0' NOT NULL,
+	year mediumint(4),
 	tracks int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
@@ -102,7 +103,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_track (
 	number tinyint(4) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid,medium,number),
+	KEY parent (pid,audio,number),
 );
 
 #

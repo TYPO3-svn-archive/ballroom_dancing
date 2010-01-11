@@ -46,7 +46,7 @@ class Tx_BallroomDancing_Controller_AudioController extends Tx_Extbase_MVC_Contr
 
 	/**
 	 * Action that shows a single audio medium.
-	 * @param Tx_BallroomDancing_Domain_Model_Audio $audio The audio medium to display.
+	 * @param Tx_BallroomDancing_Domain_Model_Medium $audio The audio medium to display.
 	 *
 	 * @return void
 	 */

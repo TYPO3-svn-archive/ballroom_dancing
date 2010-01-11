@@ -7,10 +7,13 @@
 			<ul class="tx-ballroomdancing-related-list">
 				<f:for each="{recording.tracks}" as="track">
 					<li>
-						<f:link.action action="show" controller="Audio" arguments="{audio: track.audio}">{track.audio.title}</f:link.action>
+						<f:link.action action="show" controller="Audio" arguments="{audio: track.audio.uid}">{track.audio.title}</f:link.action>
 					</li>
 				</f:for>
 			</ul>
+		</f:if>
+		<f:if condition="{audio}">
+			<f:link.action action="show" controller="Audio" arguments="{audio: audio}">Back to '{audio.title}'</f:link.action>
 		</f:if>
 	</div>
 </f:section>

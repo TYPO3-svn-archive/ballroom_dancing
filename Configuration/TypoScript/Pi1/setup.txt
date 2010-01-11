@@ -1,10 +1,13 @@
- # Plugin configuration
+
 plugin.tx_ballroomdancing {
 	settings {
 	}
 	persistence {
 		storagePid = {$plugin.tx_ballroomdancing.persistence.storagePid}
-		classes.Tx_BallroomDancing_Domain_Model_Audio.mapping.tableName = tx_ballroomdancing_domain_model_medium
+		classes {
+			Tx_BallroomDancing_Domain_Model_Audio.mapping.tableName = tx_ballroomdancing_domain_model_medium
+			Tx_BallroomDancing_Domain_Model_Text.mapping.tableName = tx_ballroomdancing_domain_model_medium
+		}
 	}
 	view {
 		templateRootPath = {$plugin.tx_ballroomdancing.view.templateRootPath}

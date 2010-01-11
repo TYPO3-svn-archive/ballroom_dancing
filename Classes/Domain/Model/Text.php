@@ -24,41 +24,56 @@
 ***************************************************************/
 
 /**
- * An audio medium (eg. a compact disk)
+ * An text medium (eg. a book)
  *
  * @version $Id:$
  * @copyright Copyright belongs to the respective authors
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
- * @scope prototype
+ * @scope protoauthor
  * @entity
  */
 class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObject_AbstractMedium {
 
-	const AUDIO_TYPE_CD = 1;		// Compact Disc
-	const AUDIO_TYPE_SACD = 2;		// Super Audio CD
-	const AUDIO_TYPE_DVD = 3;		// DVD Audio
-
 	/**
-	 * The medium type is 'audio'.
+	 * The medium author is 'text'.
 	 *
 	 * @var string
 	 */
-	private $type = 'audio';
+	private $author = 'text';
 
 	/**
-	 * The tracks of the audio medium.
+	 * The entries for the figures the text describes.
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Track>
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Entry>
 	 * @cascade remove
 	 */
-	protected $tracks;
+	// protected $entries;
 
 	/**
-	 * Constructs a new Audio Medium.
+	 * Constructs a new Text Medium.
 	 *
 	 */
 	public function __construct() {
-		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+		// $this->entries = new Tx_Extbase_Persistence_ObjectStorage();
+	}
+
+	/**
+	 * Sets this audio medium's author.
+	 *
+	 * @param string $title The author of the audio medium
+	 * @return void
+	 */
+	public function setAuthor($author) {
+		$this->author = $author;
+	}
+
+	/**
+	 * Returns the audio medium's author.
+	 *
+	 * @return integer The author of the audio medium
+	 */
+	public function getAuthor() {
+		return $this->author;
 	}
 
 	/**
@@ -69,34 +84,6 @@ class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObj
 	 */
 	public function addTrack(Tx_BlogExample_Domain_Model_Track $track) {
 		$this->tracks->attach($track);
-	}
-
-	/**
-	 * Remove a track from the audio medium.
-	 *
-	 * @param Tx_BlogExample_Domain_Model_Track $trackToRemove The track to be removed
-	 * @return void
-	 */
-	public function removeTrack(Tx_BlogExample_Domain_Model_Track $trackToRemove) {
-		$this->tracks->detach($trackToRemove);
-	}
-
-	/**
-	 * Remove all tracks from the audio medium.
-	 *
-	 * @return void
-	 */
-	public function removeAllTracks() {
-		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
-	}
-
-	/**
-	 * Returns the audio medium's tracks.
-	 *
-	 * @return string The tracks of the medium
-	 */
-	public function getTracks() {
-		return $this->tracks;
 	}
 
 }

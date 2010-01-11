@@ -19,7 +19,9 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 			'config'  => array(
 				'type' => 'select',
 				'items'  => array(
-					array('LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.type.I.audio', 'audio'),
+					array('LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.type.audio', 'audio'),
+					array(
+'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.type.text', 'text'),
 				),
 			)
 		),
@@ -29,14 +31,12 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 				'type' => 'input',
 				'size' => 20,
 				'eval' => 'trim,required',
-				'max'  => 256
 			)
 		),
 		'description' => array(
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.description',
 			'config'  => array(
 				'type' => 'text',
-				'eval' => 'required',
 				'rows' => 30,
 				'cols' => 80,
 			)
@@ -51,25 +51,34 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 			)
 		),
 		// for the type "audio"
-		'tracks' => Array (
+		'tracks' => array (
 			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.tracks',
-			'config' => Array (
+			'config' => array (
 				'type' => 'inline',
 				'foreign_table' => 'tx_ballroomdancing_domain_model_track',
 				'foreign_field' => 'audio',
 				'foreign_unique' => 'recording',
 				'foreign_selector' => 'recording',
 				'maxitems' => 50,
-				'appearance' => Array (
+				'appearance' => array (
 					'collapseAll' => 1,
 					'expandSingle' => 1,
 				),
 			),
 		),
+		'author' => array(
+			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.author',
+			'config'  => array(
+				'type' => 'input',
+				'size' => 20,
+				'eval' => 'trim,required',
+			),
+		),
 	),
 	'types' => array(
-		'default' => array('showitem' => 'hidden,type,title,description;;;;1-1-1,year'),
-		'audio' => array('showitem' => 'hidden,title,description;;;;1-1-1,year,tracks;;;;1-1-1')
+		'0' => array('showitem' => 'hidden,type,title,description;;;;1-1-1,year'),
+		'audio' => array('showitem' => 'hidden,title,description;;;;1-1-1,year,tracks;;;;1-1-1'),
+		'text' => array('showitem' => 'hidden,title,author,description;;;;1-1-1,year')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

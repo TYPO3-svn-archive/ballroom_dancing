@@ -18,7 +18,11 @@
 			<label index="tx_ballroomdancing_domain_model_dance.figures">Figures:</label>
 			<label index="tx_ballroomdancing_domain_model_figure">Figure</label>
 			<label index="tx_ballroomdancing_domain_model_medium">Medium</label>
+			<label index="tx_ballroomdancing_domain_model_medium.year">Year:</label>
+			<label index="tx_ballroomdancing_domain_model_medium.type.audio">Audio (CD)</label>
+			<label index="tx_ballroomdancing_domain_model_medium.type.text">Text (Book)</label>
 			<label index="tx_ballroomdancing_domain_model_medium.tracks">Tracks:</label>
+			<label index="tx_ballroomdancing_domain_model_medium.author">Author:</label>
 			<label index="tx_ballroomdancing_domain_model_recording">Recording</label>
 			<label index="tx_ballroomdancing_domain_model_recording.artist">Artist:</label>
 			<label index="tx_ballroomdancing_domain_model_recording.description">Short description:</label>

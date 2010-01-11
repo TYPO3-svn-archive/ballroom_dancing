@@ -44,7 +44,7 @@ abstract class Tx_BallroomDancing_DomainObject_AbstractMedium extends Tx_Extbase
 	 * The medium's title.
 	 *
 	 * @var string
-	 * @validate StringLength(minimum = 1, maximum = 255)
+	 * @XXXvalidate StringLength(minimum = 1, maximum = 255)
 	 */
 	protected $title;
 
@@ -59,7 +59,7 @@ abstract class Tx_BallroomDancing_DomainObject_AbstractMedium extends Tx_Extbase
 	 * The medium's year of production.
 	 *
 	 * @var integer
-	 * @validate NumberRange(startRange = 1900, endRange = 2100)
+	 * @XXXvalidate NumberRange(startRange = 1900, endRange = 2100)
 	 */
 	protected $year;
 
