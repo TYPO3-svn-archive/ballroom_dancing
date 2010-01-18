@@ -43,10 +43,9 @@ class Tx_BallroomDancing_Domain_Model_Track extends Tx_Extbase_DomainObject_Abst
 	protected $number;
 
 	/**
-	 * The recording of the track (a back reference).
+	 * The recording of the track.
 	 *
 	 * @var Tx_BallroomDancing_Domain_Model_Recording
-	 * @lazy
 	 */
 	protected $recording;
 
@@ -61,15 +60,24 @@ class Tx_BallroomDancing_Domain_Model_Track extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Constructs a new Track.
 	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Audio The track's audio
+	 * @param Tx_BallroomDancing_Domain_Model_Recording The track's recording
+	 * @param string The track's number
 	 */
-	public function __construct() {
+	public function __construct(Tx_BallroomDancing_Domain_Model_Audio $audio, Tx_BallroomDancing_Domain_Model_Recording $recording, $number = 0) {
+		parent::__construct();
+
+		$this->audio = $audio;
+		$this->recording = $recording;
+		if ($number > 0) {
+			$this->number = $number;
+		}
 	}
 
 	/**
-	 * Sets this track's number.
+	 * Sets the track's number.
 	 *
-	 * @param string $number The track's number
-	 * @return void
+	 * @return string The number of the track
 	 */
 	public function setNumber($number) {
 		$this->number = $number;
@@ -78,45 +86,25 @@ class Tx_BallroomDancing_Domain_Model_Track extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Returns the track's number.
 	 *
-	 * @return string The track's number
+	 * @return string The number of the track
 	 */
 	public function getNumber() {
 		return $this->number;
 	}
 
 	/**
-	 * Sets this track's recording.
-	 *
-	 * @param Tx_BallroomDancing_Domain_Model_Recording $recording The track's recording
-	 * @return void
-	 */
-	public function setRecording(Tx_BallroomDancing_Domain_Model_Recording $recording) {
-		$this->recording = $recording;
-	}
-
-	/**
 	 * Returns the track's recording.
 	 *
-	 * @return Tx_BallroomDancing_Domain_Model_Recording The track's recording
+	 * @return Tx_BallroomDancing_Domain_Model_Recording The recording of the track
 	 */
 	public function getRecording() {
 		return $this->recording;
 	}
 
 	/**
-	 * Sets this track's audio.
+	 * Returns the track's audio medium.
 	 *
-	 * @param Tx_BallroomDancing_Domain_Model_Audio $audio The track's audio
-	 * @return void
-	 */
-	public function setAudio(Tx_BallroomDancing_Domain_Model_Audio $audio) {
-		$this->audio = $audio;
-	}
-
-	/**
-	 * Returns the track's audio.
-	 *
-	 * @return Tx_BallroomDancing_Domain_Model_Audio The track's audio
+	 * @return Tx_BallroomDancing_Domain_Model_Audio The audio medium of the track
 	 */
 	public function getAudio() {
 		return $this->audio;

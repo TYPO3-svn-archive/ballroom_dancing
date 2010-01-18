@@ -40,9 +40,9 @@ $TCA['tx_ballroomdancing_domain_model_dance'] = array(
 			'config'  => array(
 				'type' => 'select',
 				'items'  => array(
-					array('', 0),
 					array('LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_dance.type.I.1', 1),
 					array('LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_dance.type.I.2', 2),
+					array('LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_dance.type.I.3', 3),
 				),
 			)
 		),

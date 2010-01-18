@@ -36,12 +36,13 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 
 	const TYPE_STANDARD = 1;
 	const TYPE_LATIN = 2;
+	const TYPE_OTHER = 3;
 
 	/**
 	 * The dance's name.
 	 *
 	 * @var string
-	 * @validate StringLength(minimum = 10, maximum = 255)
+	 * @validate StringLength(minimum = 3, maximum = 255)
 	 */
 	protected $name = '';
 
@@ -71,8 +72,12 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	 * Constructs a new Dance.
 	 *
 	 */
-	public function __construct() {
-		// $this->posts = new Tx_Extbase_Persistence_ObjectStorage();
+	public function __construct($name = '') {
+		parent::__construct($title);
+
+		$this->setName($name);
+
+		$this->figures = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -97,7 +102,7 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Sets this dance's type.
 	 *
-	 * @param string $type The dance's type.
+	 * @param string $type The type of the dance
 	 * @return void
 	 */
 	public function setType($type) {
@@ -107,7 +112,7 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * Returns the dance's type.
 	 *
-	 * @return string The dance's type.
+	 * @return string The type of the dance
 	 */
 	public function getType() {
 		return $this->type;

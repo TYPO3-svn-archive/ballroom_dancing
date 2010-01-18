@@ -14,24 +14,20 @@ if (TYPO3_MODE === 'BE')	{
 	/**
 	* Registers a Backend Module
 	*/
-	/*
 	Tx_Extbase_Utility_Extension::registerModule(
 		$_EXTKEY,
-		'web',					// Make module a submodule of 'web'
-		'tx_blogexample_m1',	// Submodule key
-		'',						// Position
-		array(																			// An array holding the controller-action-combinations that are accessible
-			'Blog' => 'index,show,new,create,delete,deleteAll,edit,update,populate',	// The first controller and its first action will be the default
-			'Post' => 'index,show,new,create,delete,edit,update',
-			'Comment' => 'create,delete,deleteAll',
-			),
+		'web',						// Make module a submodule of 'User Tools'
+		'tx_' . $_EXTKEY . '_m1',	// Submodule key
+		'',							// Position
+		array(									// An array holding the controller-action-combinations that are accessible
+			'Maintenance' => 'index,populate',	// The first controller and its first action will be the default
+		),
 		array(
 			'access' => 'user,group',
-			'icon'   => 'EXT:blog_example/ext_icon.gif',
+			'icon'   => 'EXT:ballroom_dancing/ext_icon.gif',
 			'labels' => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_mod.xml',
 		)
 	);
-	*/
 
 	/**
 	 * Add labels for context sensitive help (CSH)
@@ -45,6 +41,7 @@ $TCA['tx_ballroomdancing_domain_model_dance'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_dance',
 		'label' 			=> 'name',
+		'default_sortby'	=> 'ORDER BY name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'delete' 			=> 'deleted',
@@ -60,6 +57,7 @@ $TCA['tx_ballroomdancing_domain_model_figure'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_figure',
 		'label' 			=> 'name',
+		'default_sortby'	=> 'ORDER BY name',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'delete' 			=> 'deleted',
@@ -75,6 +73,8 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium',
 		'label' 			=> 'title',
+		'default_sortby'	=> 'ORDER BY title',
+		'type' 				=> 'type',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'delete' 			=> 'deleted',
@@ -90,6 +90,7 @@ $TCA['tx_ballroomdancing_domain_model_recording'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_recording',
 		'label' 			=> 'title',
+		'default_sortby'	=> 'ORDER BY title',
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
 		'delete' 			=> 'deleted',
@@ -105,6 +106,7 @@ $TCA['tx_ballroomdancing_domain_model_track'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_track',
 		'label' 			=> 'number',
+		'default_sortby'	=> 'ORDER BY recording,number',
 		'label_alt' 		=> 'recording,medium',
 		'label_alt_force' 	=> 1,
 		'tstamp' 			=> 'tstamp',

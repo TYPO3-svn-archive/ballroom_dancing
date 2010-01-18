@@ -29,17 +29,24 @@
  * @version $Id:$
  * @copyright Copyright belongs to the respective authors
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
- * @scope protoauthor
+ * @scope prototype
  * @entity
  */
-class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObject_AbstractMedium {
+class Tx_BallroomDancing_Domain_Model_Text extends Tx_BallroomDancing_Domain_Model_Medium {
 
 	/**
-	 * The medium author is 'text'.
+	 * The medium type is 'text'.
 	 *
 	 * @var string
 	 */
-	private $author = 'text';
+	protected $type = 'text';
+
+	/**
+	 * The author of the text medium.
+	 *
+	 * @var string
+	 */
+	protected $author;
 
 	/**
 	 * The entries for the figures the text describes.
@@ -52,15 +59,18 @@ class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObj
 	/**
 	 * Constructs a new Text Medium.
 	 *
+	 * @param string $title The title of the text medium
 	 */
-	public function __construct() {
+	public function __construct($title = '') {
+		parent::__construct($title);
+
 		// $this->entries = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
-	 * Sets this audio medium's author.
+	 * Sets this text medium's author.
 	 *
-	 * @param string $title The author of the audio medium
+	 * @param string $title The author of the text medium
 	 * @return void
 	 */
 	public function setAuthor($author) {
@@ -68,22 +78,12 @@ class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObj
 	}
 
 	/**
-	 * Returns the audio medium's author.
+	 * Returns the text medium's author.
 	 *
-	 * @return integer The author of the audio medium
+	 * @return string The author of the text medium
 	 */
 	public function getAuthor() {
 		return $this->author;
-	}
-
-	/**
-	 * Adds a track to the audio medium.
-	 *
-	 * @param Tx_BlogExample_Domain_Model_Track $track The track to be added
-	 * @return void
-	 */
-	public function addTrack(Tx_BlogExample_Domain_Model_Track $track) {
-		$this->tracks->attach($track);
 	}
 
 }

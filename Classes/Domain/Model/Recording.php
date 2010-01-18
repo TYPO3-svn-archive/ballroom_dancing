@@ -50,25 +50,32 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	protected $description;
 
 	/**
+	 * The dance that can be danced to that recording.
+	 *
+	 * @var Tx_BallroomDancing_Domain_Model_Dance
+	 */
+	protected $dance;
+
+	/**
 	 * The tracks of the media the recording is on.
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Track>
 	 * @cascade remove
 	 */
-	protected $tracks;
+	// protected $tracks;
 
 	/**
 	 * Constructs a new Recording.
 	 *
 	 */
 	public function __construct() {
-		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+		// $this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
 	 * Sets this recording's title.
 	 *
-	 * @param string $title The recording's title
+	 * @param string $title The title of the recording
 	 * @return void
 	 */
 	public function setTitle($title) {
@@ -78,7 +85,7 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	/**
 	 * Returns the recording's title.
 	 *
-	 * @return string The recording's title
+	 * @return string The title of the recording
 	 */
 	public function getTitle() {
 		return $this->title;
@@ -101,6 +108,25 @@ class Tx_BallroomDancing_Domain_Model_Recording extends Tx_Extbase_DomainObject_
 	 */
 	public function getDescription() {
 		return $this->description;
+	}
+
+	/**
+	 * Sets this recording's dance.
+	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Dance $dance The dance of the recording
+	 * @return void
+	 */
+	public function setDance($dance) {
+		$this->dance = $dance;
+	}
+
+	/**
+	 * Returns the recording's dance.
+	 *
+	 * @return Tx_BallroomDancing_Domain_Model_Dance The dance of the recording
+	 */
+	public function getDance() {
+		return $this->dance;
 	}
 
 	/**

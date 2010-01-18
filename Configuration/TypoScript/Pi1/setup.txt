@@ -15,3 +15,16 @@ plugin.tx_ballroomdancing {
 		layoutRootPath = {$plugin.tx_ballroomdancing.view.layoutRootPath}
 	}
 }
+
+
+ # Module configuration
+module.tx_ballroomdancing {
+	settings < plugin.tx_ballroomdancing.settings
+	persistence < plugin.tx_ballroomdancing.persistence
+	view < plugin.tx_ballroomdancing.view
+	view {
+		templateRootPath = {$module.tx_ballroomdancing.view.templateRootPath}
+		partialRootPath = {$module.tx_ballroomdancing.view.partialRootPath}
+		layoutRootPath = {$module.tx_ballroomdancing.view.layoutRootPath}
+	}
+}

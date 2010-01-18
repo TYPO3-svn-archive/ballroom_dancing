@@ -51,6 +51,15 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 			)
 		),
 		// for the type "audio"
+		'artist' => array(
+			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.artist',
+			'config'  => array(
+				'type' => 'input',
+				'size' => 20,
+				'eval' => 'trim,required',
+			),
+		),
+		// for the type "audio"
 		'tracks' => array (
 			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.tracks',
 			'config' => array (
@@ -66,6 +75,7 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 				),
 			),
 		),
+		// for the type "text"
 		'author' => array(
 			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.author',
 			'config'  => array(
@@ -77,7 +87,7 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 	),
 	'types' => array(
 		'0' => array('showitem' => 'hidden,type,title,description;;;;1-1-1,year'),
-		'audio' => array('showitem' => 'hidden,title,description;;;;1-1-1,year,tracks;;;;1-1-1'),
+		'audio' => array('showitem' => 'hidden,title,artist,description;;;;1-1-1,year,tracks;;;;1-1-1'),
 		'text' => array('showitem' => 'hidden,title,author,description;;;;1-1-1,year')
 	),
 	'palettes' => array(

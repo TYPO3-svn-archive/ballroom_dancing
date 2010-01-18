@@ -1,15 +1,26 @@
 
 plugin.tx_ballroomdancing {
 	view {
-		 # cat=plugin.tx_ballroomdancing/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:ballroomdancing/Resources/Private/Templates/
-		 # cat=plugin.tx_ballroomdancing/file; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:ballroomdancing/Resources/Private/Partials/
-		 # cat=plugin.tx_ballroomdancing/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:ballroomdancing/Resources/Private/Layouts/
+		 # cat=plugin.tx_ballroom_dancing/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:ballroom_dancing/Resources/Private/Templates/
+		 # cat=plugin.tx_ballroom_dancing/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:ballroom_dancing/Resources/Private/Partials/
+		 # cat=plugin.tx_ballroom_dancing/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:ballroom_dancing/Resources/Private/Layouts/
 	}
 	persistence {
-		 # cat=plugin.tx_ballroomdancing//a; type=int+; label=Default storage PID
+		 # cat=plugin.tx_ballroom_dancing//a; type=int+; label=Default storage PID
 		storagePid =
+	}
+}
+
+module.tx_ballroomdancing {
+	view {
+		 # cat=plugin.tx_ballroom_dancing/file; type=string; label=Path to template root (BE)
+		templateRootPath = EXT:ballroom_dancing/Resources/Private/Backend/Templates/
+		 # cat=plugin.tx_ballroom_dancing/file; type=string; label=Path to template partials (BE)
+		partialRootPath = EXT:ballroom_dancing/Resources/Private/Backend/Partials/
+		 # cat=plugin.tx_ballroom_dancing/file; type=string; label=Path to template layouts (BE)
+		layoutRootPath = EXT:ballroom_dancing/Resources/Private/Backend/Layouts/
 	}
 }

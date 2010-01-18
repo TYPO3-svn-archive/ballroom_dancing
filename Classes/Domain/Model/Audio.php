@@ -27,12 +27,12 @@
  * An audio medium (eg. a compact disk)
  *
  * @version $Id:$
- * @copyright Copyright belongs to the respective authors
+ * @copyright Copyright belongs to the respective artists
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
  * @scope prototype
  * @entity
  */
-class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObject_AbstractMedium {
+class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_Domain_Model_Medium {
 
 	const AUDIO_TYPE_CD = 1;		// Compact Disc
 	const AUDIO_TYPE_SACD = 2;		// Super Audio CD
@@ -43,7 +43,14 @@ class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObj
 	 *
 	 * @var string
 	 */
-	private $type = 'audio';
+	protected $type = 'audio';
+
+	/**
+	 * The artist of the audio medium.
+	 *
+	 * @var string
+	 */
+	protected $artist;
 
 	/**
 	 * The tracks of the audio medium.
@@ -56,28 +63,72 @@ class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_DomainObj
 	/**
 	 * Constructs a new Audio Medium.
 	 *
+	 * @param string $title The title of the audio medium
 	 */
-	public function __construct() {
+	public function __construct($title = '') {
+		parent::__construct($title);
+
 		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+	}
+
+	/**
+	 * Sets this audio medium's artist.
+	 *
+	 * @param string $title The artist of the audio medium
+	 * @return void
+	 */
+	public function setArtist($artist) {
+		$this->artist = $artist;
+	}
+
+	/**
+	 * Returns the audio medium's artist.
+	 *
+	 * @return integer The artist of the audio medium
+	 */
+	public function getArtist() {
+		return $this->artist;
+	}
+
+	/**
+	 * Creates a new Track and adds it to the audio medium.
+	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Recording The track's recording
+	 * @param string The track's number
+	 * @return Tx_BallroomDancing_Domain_Model_Track The track to be added
+	 */
+	public function createTrack(Tx_BallroomDancing_Domain_Model_Recording $recording, $number = 0) {
+		$track = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Model_Track', $this, $recording, $number);
+		$this->tracks->attach($track);
+		return $track;
 	}
 
 	/**
 	 * Adds a track to the audio medium.
 	 *
-	 * @param Tx_BlogExample_Domain_Model_Track $track The track to be added
+	 * @param Tx_BallroomDancing_Domain_Model_Track $track The track to be added
 	 * @return void
 	 */
-	public function addTrack(Tx_BlogExample_Domain_Model_Track $track) {
+	public function addTrack(Tx_BallroomDancing_Domain_Model_Track $track) {
+		// TODO if $this->uid == NULL then PHP object identity should be checked
+		if ($this->getUid() != $track->getAudio()->getUid()) {
+			throw new InvalidArgumentException('Track does not belong to this Audio Medium.', 126375910);
+		}
+
 		$this->tracks->attach($track);
 	}
 
 	/**
 	 * Remove a track from the audio medium.
 	 *
-	 * @param Tx_BlogExample_Domain_Model_Track $trackToRemove The track to be removed
+	 * @param Tx_BallroomDancing_Domain_Model_Track $trackToRemove The track to be removed
 	 * @return void
 	 */
-	public function removeTrack(Tx_BlogExample_Domain_Model_Track $trackToRemove) {
+	public function removeTrack(Tx_BallroomDancing_Domain_Model_Track $trackToRemove) {
+		if ($this->getUid() != $track->getAudio()->getUid()) {
+			throw new InvalidArgumentException('Track does not belong to this Audio Medium.', 126375910);
+		}
+
 		$this->tracks->detach($trackToRemove);
 	}
 

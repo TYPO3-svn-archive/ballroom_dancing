@@ -8,14 +8,13 @@ $TCA['tx_ballroomdancing_domain_model_track'] = array(
 	),
 	'columns' => array(
 		'hidden' => array(
-			'exclude' => 0,
+			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
 			'config'  => array(
 				'type' => 'check'
 			)
 		),
 		'audio' => array(
-			'exclude' => 0,
 			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_track.audio',
 			'config'  => array(
 				'type' => 'select',
@@ -24,7 +23,6 @@ $TCA['tx_ballroomdancing_domain_model_track'] = array(
 			)
 		),
 		'recording' => array(
-			'exclude' => 0,
 			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_track.recording',
 			'config'  => array(
 				'type' => 'select',
@@ -33,7 +31,6 @@ $TCA['tx_ballroomdancing_domain_model_track'] = array(
 			)
 		),
 		'number' => array(
-			'exclude' => 0,
 			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_track.number',
 			'config'  => array(
 				'type' => 'input',

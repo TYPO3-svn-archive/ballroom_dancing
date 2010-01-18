@@ -16,32 +16,35 @@ $TCA['tx_ballroomdancing_domain_model_recording'] = array(
 		),
 		// to be replaced by a reference to a Composition (song)
 		'title' => array(
-			'exclude' => 0,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.title',
 			'config'  => array(
 				'type' => 'input',
 				'size' => 20,
 				'eval' => 'trim,required',
-				'max'  => 256
 			)
 		),
 		'artist' => array(
-			'exclude' => 0,
 			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_recording.artist',
 			'config'  => array(
 				'type' => 'input',
 				'size' => 20,
-				'eval' => 'trim,required',
-				'max'  => 256
+				'eval' => 'trim',
 			)
 		),
 		'description' => array(
-			'exclude' => 1,
 			'label'   => 'LLL:EXT:lang/locallang_general.xml:LGL.description',
 			'config'  => array(
 				'type' => 'text',
 				'rows' => 30,
 				'cols' => 80,
+			)
+		),
+		'dance' => array(
+			'label'   => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_recording.dance',
+			'config'  => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_ballroomdancing_domain_model_dance',
+				'foreign_class' => 'Tx_BallroomDancing_Domain_Model_Dance',	// for the ExtBase data mapper
 			)
 		),
 		'tracks' => Array (
@@ -61,7 +64,7 @@ $TCA['tx_ballroomdancing_domain_model_recording'] = array(
 		),
 	),
 	'types' => array(
-		'1' => array('showitem' => 'hidden,title,artist,description;;;;1-1-1,tracks;;;;1-1-1')
+		'1' => array('showitem' => 'hidden,title,dance,artist,description;;;;1-1-1,tracks;;;;1-1-1')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')

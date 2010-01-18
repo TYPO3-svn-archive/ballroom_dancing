@@ -15,6 +15,7 @@
 			<label index="tx_ballroomdancing_domain_model_dance">Dance</label>
 			<label index="tx_ballroomdancing_domain_model_dance.type.I.1">Standard</label>
 			<label index="tx_ballroomdancing_domain_model_dance.type.I.2">Latin</label>
+			<label index="tx_ballroomdancing_domain_model_dance.type.I.3">Other</label>
 			<label index="tx_ballroomdancing_domain_model_dance.figures">Figures:</label>
 			<label index="tx_ballroomdancing_domain_model_figure">Figure</label>
 			<label index="tx_ballroomdancing_domain_model_medium">Medium</label>
@@ -26,6 +27,8 @@
 			<label index="tx_ballroomdancing_domain_model_recording">Recording</label>
 			<label index="tx_ballroomdancing_domain_model_recording.artist">Artist:</label>
 			<label index="tx_ballroomdancing_domain_model_recording.description">Short description:</label>
+			<label index="tx_ballroomdancing_domain_model_recording.dance">Dance:</label>
+			<label index="tx_ballroomdancing_domain_model_recording.tracks">Tracks:</label>
 			<label index="tx_ballroomdancing_domain_model_track">Track</label>
 			<label index="tx_ballroomdancing_domain_model_track.audio">Audio:</label>
 			<label index="tx_ballroomdancing_domain_model_track.recording">Recording:</label>
