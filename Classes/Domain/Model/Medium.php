@@ -24,13 +24,13 @@
 ***************************************************************/
 
 /**
- * An abstract medium
+ * An abstract medium. The base for audio media (eg CDs) and text media (eg books).
  *
  * @version $Id:$
  * @copyright Copyright belongs to the respective authors
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
  */
-abstract class Tx_BallroomDancing_DomainObject_AbstractMedium extends Tx_Extbase_DomainObject_AbstractEntity {
+abstract class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * The medium's type.
@@ -38,7 +38,7 @@ abstract class Tx_BallroomDancing_DomainObject_AbstractMedium extends Tx_Extbase
 	 * @var string
 	 * @validate StringLength(minimum = 1, maximum = 10)
 	 */
-	private $type;
+	protected $type;
 
 	/**
 	 * The medium's title.
@@ -66,9 +66,13 @@ abstract class Tx_BallroomDancing_DomainObject_AbstractMedium extends Tx_Extbase
 	/**
 	 * Constructs a new Medium.
 	 *
+	 * @param string $title The title of the medium
+	 *
 	 */
-	public function __construct() {
-		$this->tracks = new Tx_Extbase_Persistence_ObjectStorage();
+	public function __construct($title = '') {
+		parent::__construct();
+
+		$this->setTitle($title);
 	}
 
 	/**
