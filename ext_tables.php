@@ -106,8 +106,8 @@ $TCA['tx_ballroomdancing_domain_model_track'] = array (
 	'ctrl' => array (
 		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_track',
 		'label' 			=> 'number',
-		'default_sortby'	=> 'ORDER BY recording,number',
-		'label_alt' 		=> 'recording,medium',
+		'default_sortby'	=> 'ORDER BY audio,number',
+		'label_alt' 		=> 'recording,audio',
 		'label_alt_force' 	=> 1,
 		'tstamp' 			=> 'tstamp',
 		'crdate' 			=> 'crdate',
@@ -118,6 +118,25 @@ $TCA['tx_ballroomdancing_domain_model_track'] = array (
 		'hideTable'			=> 0,
 		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_track.php',
 		// 'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_ballroomdancing_domain_model_track.gif'
+	)
+);
+
+$TCA['tx_ballroomdancing_domain_model_entry'] = array (
+	'ctrl' => array (
+		'title'             => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_entry',
+		'label' 			=> 'number',
+		'default_sortby'	=> 'ORDER BY text,number',
+		'label_alt' 		=> 'text,figure',
+		'label_alt_force' 	=> 1,
+		'tstamp' 			=> 'tstamp',
+		'crdate' 			=> 'crdate',
+		'delete' 			=> 'deleted',
+		'enablecolumns' 	=> array(
+			'disabled' => 'hidden'
+		),
+		'hideTable'			=> 0,
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY) . 'Configuration/TCA/tca_entry.php',
+		// 'iconfile' 			=> t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/icon_tx_ballroomdancing_domain_model_entry.gif'
 	)
 );
 

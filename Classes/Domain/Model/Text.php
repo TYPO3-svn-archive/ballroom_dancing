@@ -54,7 +54,7 @@ class Tx_BallroomDancing_Domain_Model_Text extends Tx_BallroomDancing_Domain_Mod
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Entry>
 	 * @cascade remove
 	 */
-	// protected $entries;
+	protected $entries;
 
 	/**
 	 * Constructs a new Text Medium.
@@ -64,7 +64,7 @@ class Tx_BallroomDancing_Domain_Model_Text extends Tx_BallroomDancing_Domain_Mod
 	public function __construct($title = '') {
 		parent::__construct($title);
 
-		// $this->entries = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->entries = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -84,6 +84,48 @@ class Tx_BallroomDancing_Domain_Model_Text extends Tx_BallroomDancing_Domain_Mod
 	 */
 	public function getAuthor() {
 		return $this->author;
+	}
+
+	/**
+	 * Creates a new Entry and adds it to the text medium.
+	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Figure $figure The entry's figure
+	 * @param Tx_BallroomDancing_Domain_Model_Dance $dance The entry's dance
+	 * @param integer $number The entry's page number
+	 * @return Tx_BallroomDancing_Domain_Model_Entry The new entry
+	 */
+	public function createEntry(Tx_BallroomDancing_Domain_Model_Figure $figure, Tx_BallroomDancing_Domain_Model_Dance $dance, $number = 0) {
+		$entry = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Model_Entry', $this, $figure, $dance, $number);
+		$this->entries->attach($entry);
+		return $entry;
+	}
+
+	/**
+	 * Remove a entry from the text medium.
+	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Entry $entry The entry to be removed
+	 * @return void
+	 */
+	public function removeEntry(Tx_BallroomDancing_Domain_Model_Entry $entry) {
+		$this->entries->detach($entry);
+	}
+
+	/**
+	 * Remove all entries from the text medium.
+	 *
+	 * @return void
+	 */
+	public function removeAllEntries() {
+		$this->entries = new Tx_Extbase_Persistence_ObjectStorage();
+	}
+
+	/**
+	 * Returns the text medium's entries.
+	 *
+	 * @return string The entries of the medium
+	 */
+	public function getEntries() {
+		return $this->entries;
 	}
 
 }

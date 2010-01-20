@@ -58,6 +58,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_medium (
 	description mediumtext NOT NULL,
 	year mediumint(4),
 	tracks int(11) DEFAULT '0' NOT NULL,
+	entries int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid,title),
@@ -104,6 +105,26 @@ CREATE TABLE tx_ballroomdancing_domain_model_track (
 
 	PRIMARY KEY (uid),
 	KEY parent (pid,audio,number),
+);
+
+#
+# Table structure for table 'tx_ballroomdancing_domain_model_entry'
+#
+CREATE TABLE tx_ballroomdancing_domain_model_entry (
+	uid int(11) DEFAULT '0' NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+	tstamp int(11) DEFAULT '0' NOT NULL,
+	crdate int(11) DEFAULT '0' NOT NULL,
+	cruser_id int(11) DEFAULT '0' NOT NULL,
+	deleted tinyint(4) DEFAULT '0' NOT NULL,
+	hidden tinyint(4) DEFAULT '0' NOT NULL,
+	text int(11) DEFAULT '0' NOT NULL,
+	figure int(11) DEFAULT '0' NOT NULL,
+	dance int(11) DEFAULT '0' NOT NULL,
+	number mediumint(6) DEFAULT '0' NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid,text,number),
 );
 
 #

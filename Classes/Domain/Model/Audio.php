@@ -93,9 +93,9 @@ class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_Domain_Mo
 	/**
 	 * Creates a new Track and adds it to the audio medium.
 	 *
-	 * @param Tx_BallroomDancing_Domain_Model_Recording The track's recording
-	 * @param string The track's number
-	 * @return Tx_BallroomDancing_Domain_Model_Track The track to be added
+	 * @param Tx_BallroomDancing_Domain_Model_Recording $recording The track's recording
+	 * @param integer $number The track's number
+	 * @return Tx_BallroomDancing_Domain_Model_Track The new track
 	 */
 	public function createTrack(Tx_BallroomDancing_Domain_Model_Recording $recording, $number = 0) {
 		$track = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Model_Track', $this, $recording, $number);
@@ -104,32 +104,13 @@ class Tx_BallroomDancing_Domain_Model_Audio extends Tx_BallroomDancing_Domain_Mo
 	}
 
 	/**
-	 * Adds a track to the audio medium.
-	 *
-	 * @param Tx_BallroomDancing_Domain_Model_Track $track The track to be added
-	 * @return void
-	 */
-	public function addTrack(Tx_BallroomDancing_Domain_Model_Track $track) {
-		// TODO if $this->uid == NULL then PHP object identity should be checked
-		if ($this->getUid() != $track->getAudio()->getUid()) {
-			throw new InvalidArgumentException('Track does not belong to this Audio Medium.', 126375910);
-		}
-
-		$this->tracks->attach($track);
-	}
-
-	/**
 	 * Remove a track from the audio medium.
 	 *
-	 * @param Tx_BallroomDancing_Domain_Model_Track $trackToRemove The track to be removed
+	 * @param Tx_BallroomDancing_Domain_Model_Track $track The track to be removed
 	 * @return void
 	 */
-	public function removeTrack(Tx_BallroomDancing_Domain_Model_Track $trackToRemove) {
-		if ($this->getUid() != $track->getAudio()->getUid()) {
-			throw new InvalidArgumentException('Track does not belong to this Audio Medium.', 126375910);
-		}
-
-		$this->tracks->detach($trackToRemove);
+	public function removeTrack(Tx_BallroomDancing_Domain_Model_Track $track) {
+		$this->tracks->detach($track);
 	}
 
 	/**

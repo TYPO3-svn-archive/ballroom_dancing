@@ -104,6 +104,35 @@ class Tx_BallroomDancing_Domain_Model_Figure extends Tx_Extbase_DomainObject_Abs
 	}
 
 	/**
+	 * Adds a dance to the figure.
+	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Dance $dance The dance to be added
+	 * @return void
+	 */
+	public function addDance(Tx_BallroomDancing_Domain_Model_Dance $dance) {
+		$this->dances->attach($dance);
+	}
+
+	/**
+	 * Remove a dance from the figure.
+	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Dance $dance The dance to be removed
+	 * @return void
+	 */
+	public function removeDance(Tx_BallroomDancing_Domain_Model_Dance $dance) {
+		$this->dances->detach($dance);
+	}
+
+	/**
+	 * Remove all dances from the figure.
+	 *
+	 * @return void
+	 */
+	public function removeAllDances() {
+		$this->dances = new Tx_Extbase_Persistence_ObjectStorage();
+	}
+
+	/**
 	 * Gets the figure's dances.
 	 *
 	 * @return Tx_Extbase_Persistence_ObjectStorage The dances of the figure

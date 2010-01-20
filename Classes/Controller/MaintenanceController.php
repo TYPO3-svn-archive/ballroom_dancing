@@ -36,6 +36,11 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 	protected $danceRepository;
 
 	/**
+	 * @var Tx_BallroomDancing_Domain_Repository_FigureRepository
+	 */
+	protected $figureRepository;
+
+	/**
 	 * @var Tx_BallroomDancing_Domain_Repository_MediumRepository
 	 */
 	protected $mediumRepository;
@@ -47,6 +52,7 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 	 */
 	public function initializeAction() {
 		$this->danceRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_DanceRepository');
+		$this->figureRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_FigureRepository');
 		$this->mediumRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
 	}
 
@@ -67,6 +73,7 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 	public function populateAction() {
 		$dances = $this->addDanceData();
 		$this->addAudioData($dances);
+		$this->addTextData($dances);
 	}
 
 	private function addDanceData() {
@@ -124,6 +131,46 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 		fclose($handle);
 
 		$this->flashMessages->add($audioCounter . ' audio media have been added.');
+	}
+
+	private function addTextData(array $dances) {
+		$figures = array();
+
+		$handle = @fopen(t3lib_extMgm::extPath('ballroom_dancing', 'Resources/Private/Data/books.csv'), 'r');
+		if (!$handle) {
+			throw new Exception('Cannot open data file.');
+		}
+		$text = NULL;
+		$textCounter = 0;
+		while (($data = fgetcsv($handle, 1000, "\t")) !== FALSE) {
+			if ($data[0] != '*') {
+				$text = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Model_Text', $data[0]);
+				$text->setAuthor($data[1]);
+				$text->setYear($data[2]);
+
+				$this->mediumRepository->add($text);
+
+				$textCounter++;
+				$trackCounter = 1;
+			} else {
+				if ($figures[$data[2]]) {
+					$figure = $figures[$data[2]];
+				} else {
+					$figure = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Model_Figure');
+					$figure->setName($data[2]);
+
+					$this->figureRepository->add($figure);
+					$figures[$data[2]] = $figure;
+				}
+				if ($dances[$data[1]]) {
+					$figure->addDance($dances[$data[1]]);
+					$text->createEntry($figure, $dances[$data[1]], $data[3]);
+				}
+			}
+		}
+		fclose($handle);
+
+		$this->flashMessages->add($textCounter . ' text media have been added.');
 	}
 
 }

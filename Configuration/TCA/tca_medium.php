@@ -84,11 +84,26 @@ $TCA['tx_ballroomdancing_domain_model_medium'] = array(
 				'eval' => 'trim,required',
 			),
 		),
+		// for the type "text"
+		'entries' => array (
+			'label' => 'LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tx_ballroomdancing_domain_model_medium.entries',
+			'config' => array (
+				'type' => 'inline',
+				'foreign_table' => 'tx_ballroomdancing_domain_model_entry',
+				'foreign_field' => 'text',
+				'foreign_selector' => 'figure',
+				'maxitems' => 150,
+				'appearance' => array (
+					'collapseAll' => 1,
+					'expandSingle' => 1,
+				),
+			),
+		),
 	),
 	'types' => array(
 		'0' => array('showitem' => 'hidden,type,title,description;;;;1-1-1,year'),
 		'audio' => array('showitem' => 'hidden,title,artist,description;;;;1-1-1,year,tracks;;;;1-1-1'),
-		'text' => array('showitem' => 'hidden,title,author,description;;;;1-1-1,year')
+		'text' => array('showitem' => 'hidden,title,author,description;;;;1-1-1,year,entries;;;;1-1-1')
 	),
 	'palettes' => array(
 		'1' => array('showitem' => '')
