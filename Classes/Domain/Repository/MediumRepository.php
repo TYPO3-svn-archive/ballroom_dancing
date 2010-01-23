@@ -24,9 +24,21 @@
 ***************************************************************/
 
 /**
- * A repository for Media
+ * A repository for Media (Audio, Text, ...) and the aggregate members Track and Entry
  */
 class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_Extbase_Persistence_Repository {
+
+	/**
+	 * Finds tracks by the specified recording
+	 *
+	 * @param Tx_BallroomDancing_Domain_Model_Recording $recording The recording the track must refer to
+	 * @return array The posts
+	 */
+	public function findTracksByRecording(Tx_BallroomDancing_Domain_Model_Recording $recording) {
+		$query = $this->queryFactory->create('Tx_BallroomDancing_Domain_Model_Track');
+		return $query->matching($query->equals('recording', $recording))
+			->execute();
+	}
 
 }
 

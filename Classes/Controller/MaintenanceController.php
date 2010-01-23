@@ -66,7 +66,7 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 	}
 
 	/**
-	 * Creates a several new blogs
+	 * Creates demo data
 	 *
 	 * @return void
 	 */

@@ -2,12 +2,13 @@
 <f:section name="content">
 	<div class="tx-ballroomdancing-item">
 		<h3>{audio.title}</h3>
+		<p>{audio.artist}</p>
 		<p><f:format.nl2br>{audio.description}</f:format.nl2br></p>
 		<f:if condition="{audio.tracks}">
 			<ul class="tx-ballroomdancing-related-list">
 				<f:for each="{audio.tracks}" as="track">
 					<li>
-						<f:link.action action="show" controller="Recording" arguments="{recording: track.recording.uid, audio: audio}">{track.recording.title}</f:link.action>
+						{track.number}. <f:link.action action="show" controller="Recording" arguments="{recording: track.recording.uid, audio: audio}">{track.recording.title}</f:link.action>
 					</li>
 				</f:for>
 			</ul>
