@@ -56,13 +56,13 @@ class Tx_BallroomDancing_Controller_RecordingController extends Tx_Extbase_MVC_C
 	/**
 	 * Action that shows a single recording.
 	 * @param Tx_BallroomDancing_Domain_Model_Recording $recording The recording to display
-	 * @param Tx_BallroomDancing_Domain_Model_Audio $medium An audio medium on which the recrding is on
+	 * @param Tx_BallroomDancing_Domain_Model_Audio $medium The audio medium which is referring to the recording
 	 *
 	 * @return void
 	 */
-	public function showAction(Tx_BallroomDancing_Domain_Model_Recording $recording, Tx_BallroomDancing_Domain_Model_Audio $audio=NULL) {
+	public function showAction(Tx_BallroomDancing_Domain_Model_Recording $recording, Tx_BallroomDancing_Domain_Model_Audio $audio = NULL) {
 		$this->view->assign('recording', $recording);
-		$this->view->assign('audio', $audio);
+		$this->view->assign('referringAudio', $audio);
 	}
 
 }

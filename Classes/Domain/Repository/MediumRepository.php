@@ -26,7 +26,7 @@
 /**
  * A repository for Media (Audio, Text, ...) and the aggregate members Track and Entry
  */
-class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_Extbase_Persistence_Repository {
+class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_BallroomDancing_Persistence_Repository {
 
 	/**
 	 * Finds tracks by the specified recording
@@ -38,6 +38,26 @@ class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_Extbase_P
 		$query = $this->queryFactory->create('Tx_BallroomDancing_Domain_Model_Track');
 		return $query->matching($query->equals('recording', $recording))
 			->execute();
+	}
+
+	/**
+	 * Counts all audio objects of this repository.
+	 *
+	 * @return integer
+	 */
+	function countAllAudios() {
+		$query = $this->createQuery();
+		return $query->matching($query->equals('type', 'audio'))->count();
+	}
+
+	/**
+	 * Counts all text objects of this repository.
+	 *
+	 * @return integer
+	 */
+	function countAllTexts() {
+		$query = $this->createQuery();
+		return $query->matching($query->equals('type', 'text'))->count();
 	}
 
 }

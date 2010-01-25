@@ -1,4 +1,5 @@
 <f:layout name="default" />
+
 <f:section name="content">
 	<div class="tx-ballroomdancing-item">
 		<h3>{recording.title}</h3>
@@ -12,8 +13,8 @@
 				</f:for>
 			</ul>
 		</f:if>
-		<f:if condition="{audio}">
-			<f:link.action action="show" controller="Audio" arguments="{audio: audio}">Back to '{audio.title}'</f:link.action>
+		<f:if condition="{referringAudio}">
+			<f:link.action action="show" controller="Audio" arguments="{audio: referringAudio}">Back to '{referringAudio.title}'</f:link.action>
 		</f:if>
 	</div>
 </f:section>

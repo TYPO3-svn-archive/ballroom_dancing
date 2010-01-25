@@ -1,13 +1,15 @@
 <f:layout name="default" />
+
 <f:section name="content">
 	<div class="tx-ballroomdancing-item">
 		<h3>{text.title}</h3>
+		<p>{text.author}</p>
 		<p><f:format.nl2br>{text.description}</f:format.nl2br></p>
-		<f:if condition="{text.tracks}">
+		<f:if condition="{text.entries}">
 			<ul class="tx-ballroomdancing-related-list">
-				<f:for each="{text.tracks}" as="track">
+				<f:for each="{text.entries}" as="entry">
 					<li>
-						<f:link.action action="show" controller="Recording" arguments="{recording: track.recording, text: text}">{track.recording.title}</f:link.action>
+						<f:link.action action="show" controller="Figure" arguments="{figure: entry.figure.uid, text: text}">{entry.figure.title}</f:link.action>
 					</li>
 				</f:for>
 			</ul>

@@ -73,7 +73,7 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	 *
 	 */
 	public function __construct($name = '') {
-		parent::__construct($title);
+		parent::__construct();
 
 		$this->setName($name);
 

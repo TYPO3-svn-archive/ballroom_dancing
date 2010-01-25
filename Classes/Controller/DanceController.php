@@ -53,6 +53,16 @@ class Tx_BallroomDancing_Controller_DanceController extends Tx_Extbase_MVC_Contr
 		$this->view->assign('dances', $this->danceRepository->findAll());
 	}
 
+	/**
+	 * Action that shows a single dance.
+	 * @param Tx_BallroomDancing_Domain_Model_Dance $dance The dance to display.
+	 *
+	 * @return void
+	 */
+	public function showAction(Tx_BallroomDancing_Domain_Model_Dance $dance) {
+		$this->view->assign('dance', $dance);
+	}
+
 }
 
 ?>

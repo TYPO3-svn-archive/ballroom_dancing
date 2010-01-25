@@ -1,15 +1,16 @@
 {namespace dance=Tx_BallroomDancing_ViewHelpers}
 <f:layout name="default" />
+
 <f:section name="content">
 	<f:if condition="{figures}">
 		<f:then>
-			<h3>Figures:</h3>
+			<h3>Figures</h3>
 			<dl class="tx-ballroomdancing-list">
 				<f:for each="{figures}" as="figure">
-					<dt>{figure.name}</dt>
+					<dt><f:link.action action="show" arguments="{figure: figure}">{figure.name}</f:link.action></dt>
 					<dd>
 						<f:format.nl2br>{figure.description}</f:format.nl2br><br/>
-						Dance: <dance:join each="{figure.dances}" as="dance" by=", ">{dance.name}</dance:join>
+						Dance: <dance:join each="{figure.dances}" as="dance" by=", "><f:link.action action="show" controller="Dance" arguments="{dance: dance}">{dance.name}</f:link.action></dance:join>
 					<dd>
 				</f:for>
 			</dl>

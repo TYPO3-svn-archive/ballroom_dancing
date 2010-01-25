@@ -46,6 +46,11 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 	protected $mediumRepository;
 
 	/**
+	 * @var Tx_BallroomDancing_Domain_Repository_RecordingRepository
+	 */
+	protected $recordingRepository;
+
+	/**
 	 * Initializes the current action
 	 *
 	 * @return void
@@ -54,6 +59,7 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 		$this->danceRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_DanceRepository');
 		$this->figureRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_FigureRepository');
 		$this->mediumRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
+		$this->recordingRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_RecordingRepository');
 	}
 
 	/**
@@ -62,7 +68,12 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 	 * @return void
 	 */
 	public function indexAction() {
-	// $this->view->assign('dances', 
+		$this->view->assign('danceCount', $this->danceRepository->countAll());
+		$this->view->assign('figureCount', $this->figureRepository->countAll());
+		$this->view->assign('mediumCount', $this->mediumRepository->countAll());
+		$this->view->assign('audioMediumCount', $this->mediumRepository->countAllAudios());
+		$this->view->assign('textMediumCount', $this->mediumRepository->countAllTexts());
+		$this->view->assign('recordingCount', $this->recordingRepository->countAll());
 	}
 
 	/**

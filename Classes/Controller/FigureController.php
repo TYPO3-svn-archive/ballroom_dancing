@@ -53,6 +53,18 @@ class Tx_BallroomDancing_Controller_FigureController extends Tx_Extbase_MVC_Cont
 		$this->view->assign('figures', $this->figureRepository->findAll());
 	}
 
+	/**
+	 * Action that shows a single figure.
+	 * @param Tx_BallroomDancing_Domain_Model_Figure $figure The figure to display
+	 * @param  Tx_BallroomDancing_Domain_Model_Dance $dance The dance which is referring to the figure
+	 *
+	 * @return void
+	 */
+	public function showAction(Tx_BallroomDancing_Domain_Model_Figure $figure, Tx_BallroomDancing_Domain_Model_Dance $dance = NULL) {
+		$this->view->assign('figure', $figure);
+		$this->view->assign('referringDance', $dance);
+	}
+
 }
 
 ?>

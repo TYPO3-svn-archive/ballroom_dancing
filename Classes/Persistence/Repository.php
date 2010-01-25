@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************
 *  Copyright notice
 *
@@ -23,35 +24,36 @@
 ***************************************************************/
 
 /**
- * The audio media controller for the Ballroom Dancing package
- *
- * @version $Id:$
- * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
+ * An extended repository
  */
-class Tx_BallroomDancing_Controller_AudioController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_BallroomDancing_Persistence_Repository extends Tx_Extbase_Persistence_Repository {
 
 	/**
-	 * @var Tx_BallroomDancing_Domain_Repository_MediumRepository
-	 */
-	// protected $mediumRepository;
-
-	/**
-	 * Initializes the current action.
+	 * Counts all objects of this repository.
 	 *
-	 * @return void
+	 * @return integer
 	 */
-	public function initializeAction() {
-		// $this->mediumRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
+	function countAll() {
+		return $this->createQuery()->count();
 	}
 
 	/**
-	 * Action that shows a single audio medium.
-	 * @param Tx_BallroomDancing_Domain_Model_Audio $audio The audio medium to display.
+	 * Dispatches magic methods (countWith[Property]())
 	 *
+	 * @param string $methodName The name of the magic method
+	 * @param string $arguments The arguments of the magic method
+	 * @throws Tx_Extbase_Persistence_Exception_UnsupportedMethod
 	 * @return void
 	 */
-	public function showAction(Tx_BallroomDancing_Domain_Model_Audio $audio) {
-		$this->view->assign('audio', $audio);
+	public function __call($methodName, $arguments) {
+		if (substr($methodName, 0, 9) === 'countWith' && strlen($methodName) > 10) {
+			$propertyName = strtolower(substr(substr($methodName, 9), 0, 1) ) . substr(substr($methodName, 9), 1);
+			$query = $this->createQuery();
+			$result = $query->matching($query->equals($propertyName, $arguments[0]))
+				->count();
+			return $result;
+		}
+		parent::__call($methodName, $arguments);
 	}
 
 }

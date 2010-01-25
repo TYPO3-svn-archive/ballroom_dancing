@@ -1,5 +1,4 @@
 <?php
-
 /***************************************************************
 *  Copyright notice
 *
@@ -24,9 +23,37 @@
 ***************************************************************/
 
 /**
- * A repository for Dance Figures
+ * The text media controller for the Ballroom Dancing package
+ *
+ * @version $Id:$
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License, version 2
  */
-class Tx_BallroomDancing_Domain_Repository_FigureRepository extends Tx_BallroomDancing_Persistence_Repository {			
+class Tx_BallroomDancing_Controller_TextController extends Tx_Extbase_MVC_Controller_ActionController {
+
+	/**
+	 * @var Tx_BallroomDancing_Domain_Repository_MediumRepository
+	 */
+	// protected $mediumRepository;
+
+	/**
+	 * Initializes the current action.
+	 *
+	 * @return void
+	 */
+	public function initializeAction() {
+		// $this->mediumRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
+	}
+
+	/**
+	 * Action that shows a single text medium.
+	 * @param Tx_BallroomDancing_Domain_Model_Text $text The text medium to display.
+	 *
+	 * @return void
+	 */
+	public function showAction(Tx_BallroomDancing_Domain_Model_Text $text) {
+		$this->view->assign('text', $text);
+	}
+
 }
 
 ?>
