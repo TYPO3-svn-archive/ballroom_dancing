@@ -13,6 +13,7 @@
 			<label index="general.figures">figures</label>
 			<label index="dance.list">List Dances</label>
 			<label index="figure.list">List Figures</label>
+			<label index="text.list">List Books</label>
 			<label index="recording.list">List Recordings</label>
 		</languageKey>
 	</data>

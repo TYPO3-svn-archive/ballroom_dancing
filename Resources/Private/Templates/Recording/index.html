@@ -2,11 +2,11 @@
 <f:section name="content">
 	<f:if condition="{recordings}">
 		<f:then>
-			<p>Songs and Dance Pieces:</p>
+			<h3>Songs and Dance Pieces</h3>
 			<dl>
 				<f:for each="{recordings}" as="recording">
 					<dt>
-						<f:link.action action="show" controller="Recording" arguments="{recording: recording}">{recording.title}</f:link.action>
+						<f:link.action action="show" arguments="{recording: recording}">{recording.title}</f:link.action>
 					</dt>
 					<dd>
 						<f:format.nl2br>{recording.description}</f:format.nl2br>
@@ -18,7 +18,7 @@
 			</dl>
 		</f:then>
 		<f:else>
-			<p>
+			<p class="tx-ballroomdancing-problem">
 				<strong>Sorry! There are no recordings listed on this server.</strong>
 			</p>
 		</f:else>

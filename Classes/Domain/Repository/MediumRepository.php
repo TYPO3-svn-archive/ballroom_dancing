@@ -60,6 +60,26 @@ class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_BallroomD
 		return $query->matching($query->equals('type', 'text'))->count();
 	}
 
+	/**
+	 * Finds all audio objects of this repository.
+	 *
+	 * @return integer
+	 */
+	function findAllAudios() {
+		$query = $this->queryFactory->create('Tx_BallroomDancing_Domain_Model_Audio');
+		return $query->matching($query->equals('type', 'audio'))->execute();
+	}
+
+	/**
+	 * Finds all text objects of this repository.
+	 *
+	 * @return integer
+	 */
+	function findAllTexts() {
+		$query = $this->queryFactory->create('Tx_BallroomDancing_Domain_Model_Text');
+		return $query->matching($query->equals('type', 'text'))->execute();
+	}
+
 }
 
 ?>

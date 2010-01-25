@@ -11,7 +11,8 @@
 			<label index="tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.dances">Dances</label>
 			<label index="tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.figures">Figures</label>
 			<label index="tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.recordings">Recordings</label>
-			<label index="tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.audio">Audio</label>
+			<label index="tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.audio">Audio (CDs)</label>
+			<label index="tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.text">Texts (Books)</label>
 			<label index="tx_ballroomdancing_domain_model_dance">Dance</label>
 			<label index="tx_ballroomdancing_domain_model_dance.type.I.1">Standard</label>
 			<label index="tx_ballroomdancing_domain_model_dance.type.I.2">Latin</label>

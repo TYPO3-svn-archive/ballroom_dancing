@@ -33,7 +33,7 @@ class Tx_BallroomDancing_Controller_TextController extends Tx_Extbase_MVC_Contro
 	/**
 	 * @var Tx_BallroomDancing_Domain_Repository_MediumRepository
 	 */
-	// protected $mediumRepository;
+	protected $mediumRepository;
 
 	/**
 	 * Initializes the current action.
@@ -41,12 +41,21 @@ class Tx_BallroomDancing_Controller_TextController extends Tx_Extbase_MVC_Contro
 	 * @return void
 	 */
 	public function initializeAction() {
-		// $this->mediumRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
+		$this->mediumRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
+	}
+
+	/**
+	 * Index action for this controller. Displays a list of text media.
+	 *
+	 * @return void
+	 */
+	public function indexAction() {
+		$this->view->assign('texts', $this->mediumRepository->findAllTexts());
 	}
 
 	/**
 	 * Action that shows a single text medium.
-	 * @param Tx_BallroomDancing_Domain_Model_Text $text The text medium to display.
+	 * @param Tx_BallroomDancing_Domain_Model_Text $text The text medium to display
 	 *
 	 * @return void
 	 */

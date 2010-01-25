@@ -33,6 +33,10 @@
 										<numIndex index="0">LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.audio</numIndex>
 										<numIndex index="1">Audio->show</numIndex>
 									</numIndex>
+									<numIndex index="5" type="array">
+										<numIndex index="0">LLL:EXT:ballroom_dancing/Resources/Private/Language/locallang_db.xml:tt_content.pi_flexform.tx_ballroomdancing_pi1.switchableControllerActions.text</numIndex>
+										<numIndex index="1">Text->index;Text->show</numIndex>
+									</numIndex>
 								</items>
 								<minitems>1</minitems>
 								<maxitems>20</maxitems>

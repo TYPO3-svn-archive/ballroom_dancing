@@ -122,10 +122,26 @@ class Tx_BallroomDancing_Domain_Model_Text extends Tx_BallroomDancing_Domain_Mod
 	/**
 	 * Returns the text medium's entries.
 	 *
-	 * @return string The entries of the medium
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Entry> The entries of the text medium
 	 */
 	public function getEntries() {
 		return $this->entries;
+	}
+
+	/**
+	 * Returns the text medium's dances.
+	 *
+	 * @return array The dances of the text medium
+	 */
+	public function getDances() {
+		$dances = new SplObjectStorage();
+		foreach ($this->entries as $entry) {
+			$dance = $entry->getDance();
+			if (!$dances->contains($dance)) {
+				$dances->attach($dance);
+			}
+		}
+		return $dances;
 	}
 
 }
