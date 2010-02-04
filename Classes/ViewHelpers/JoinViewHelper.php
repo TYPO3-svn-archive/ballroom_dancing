@@ -111,14 +111,18 @@ class Tx_BallroomDancing_ViewHelpers_JoinViewHelper extends Tx_Fluid_Core_ViewHe
 				$output .= $by;
 			}
 
-			$this->templateVariableContainer->add($as, $item);
+			if ($as) {
+				$this->templateVariableContainer->add($as, $item);
+			}
 			if ($itemNode) {
 				$itemNode->setRenderingContext($this->renderingContext);
 				$output .= $itemNode->evaluate();
 			} else {
 				$output .= $this->renderChildren();
 			}
-			$this->templateVariableContainer->remove($as);
+			if ($as) {
+				$this->templateVariableContainer->remove($as);
+			}
 			$counter++;
 		}
 		return $output;
