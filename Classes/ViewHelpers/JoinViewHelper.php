@@ -42,7 +42,7 @@
  * </bd:join>
  *
  */
-class Tx_BallroomDancing_ViewHelpers_JoinViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper  implements Tx_Fluid_Core_ViewHelper_Facets_ChildNodeAccessInterface {
+class Tx_BallroomDancing_ViewHelpers_JoinViewHelper extends Tx_Fluid_Core_ViewHelper_AbstractViewHelper implements Tx_Fluid_Core_ViewHelper_Facets_ChildNodeAccessInterface {
 
 	/**
 	 * An array of Tx_Fluid_Core_Parser_SyntaxTree_AbstractNode
