@@ -49,9 +49,9 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * The dance's type.
 	 *
-	 * @var integer
+	 * @var Tx_BallroomDancing_Domain_Property_Dance_Type
 	 */
-	protected $type = 0;
+	protected $type;
 
 	/**
 	 * A short description of the dance.
@@ -81,6 +81,23 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	}
 
 	/**
+	 * Reconstitutes a property. Only for internal use.
+	 *
+	 * @param string $propertyName
+	 * @param string $value
+	 * @return bool
+	 */
+	public function _setProperty($propertyName, $propertyValue) {
+		// The data mapper doesn't know about this property type so we thaw it ourself.
+		if ($propertyName == 'type') {
+			$this->type = Tx_BallroomDancing_Persistence_TcaSelectItemFactory::createItem('Tx_BallroomDancing_Domain_Model_Dance', 'type', $propertyValue);
+			return TRUE;
+		} else {
+			return parent::_setProperty($propertyName, $propertyValue);
+		}
+	}
+
+	/**
 	 * Sets this dance's name.
 	 *
 	 * @param string $name The dance's name
@@ -105,14 +122,14 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	 * @param string $type The type of the dance
 	 * @return void
 	 */
-	public function setType($type) {
+	public function setType(Tx_BallroomDancing_Domain_Property_Dance_Type $type) {
 		$this->type = $type;
 	}
 
 	/**
 	 * Returns the dance's type.
 	 *
-	 * @return string The type of the dance
+	 * @return Tx_BallroomDancing_Domain_Property_Dance_Type The type of the dance
 	 */
 	public function getType() {
 		return $this->type;

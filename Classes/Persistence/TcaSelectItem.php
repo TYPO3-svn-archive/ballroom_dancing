@@ -23,15 +23,11 @@
 ***************************************************************/
 
 /**
- * A abstract Value Object. A Value Object is an object that describes some characteristic
- * or attribute (e.g. a color) but carries no concept of identity.
+ * ...
  *
- * @package Extbase
- * @subpackage DomainObject
  * @version $ID:$
  */
-abstract class Tx_BallroomDancing_DomainObject_AbstractTcaSelectValueObject extends Tx_Extbase_DomainObject_AbstractValueObject {
-// Tx_BallroomDancing_DomainObject_Tca_AbstractSelectValueObject
+class Tx_BallroomDancing_Persistence_TcaSelectItem {
 
 	/**
 	 * The value of the column corresponding to the domain class configured in $TCA
@@ -45,71 +41,69 @@ abstract class Tx_BallroomDancing_DomainObject_AbstractTcaSelectValueObject exte
 	 *
 	 * @var string
 	 **/
-	protected $tableName;
+	protected $label;
 
 	/**
 	 * The column name corresponding to the domain classes attribute configured in $TCA
 	 *
 	 * @var string
 	 **/
-	protected $columnName;
+	protected $icon;
 
 	/**
-	 * The table name corresponding to the domain class configured in $TCA
+	 * The column name corresponding to the domain classes attribute configured in $TCA
 	 *
-	 * @var array
+	 * @var string
 	 **/
-	protected static $allowedValues;
+	protected $description;
 
-	public function __toString() {
-		return $this->getLabel();
-	}
 
-	/**
-	 * Sets the value of the "select" option.
-	 *
-	 * @return void
-	 */
-	public function setValue($value) {
-		if (!isset($this->allowedValues[$value])) {
-			throw new Exception('invaild value');
-		}
+	public function __construct($value, $label='', $icon='', $description='') {
 		$this->value = $value;
+		$this->label = $label;
+		$this->icon = $icon;
+		$this->description = $description;
 	}
 
 	/**
-	 * Returns the value of the Value Object. Must be overwritten by a concrete value object.
+	 * Gets the value of the "select" item.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function getValue() {
-		if (is_string($this->value)) {
-			throw new Exception('no value');
-		}
 		return $this->value;
 	}
 
 	/**
-	 * Gets the label of the "select" option.
+	 * Gets the label of the "select" item.
 	 *
 	 * @return string
 	 */
 	public function getLabel() {
-		if (is_string($this->value)) {
-			throw new Exception('no value');
-		}
-		return $this->allowedValues[$this->value];
+		return $this->label;
 	}
 
 	/**
-	 * Init class.
+	 * Gets the icon of the "select" item.
 	 *
-	 * @return void
+	 * @return string
 	 */
-	protected function initializeObject() {
-		if (!is_array($this->allowedValues)) {
-		// $GLOBALS['TCA'][$this->tableName]['columns'][$this->columnName]['config']['items']
-		}
+	public function getIcon() {
+		return $this->icon;
+	}
+
+	/**
+	 * Gets the description of the "select" item.
+	 *
+	 * @return string
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
+
+	public function __toString() {
+		// this MUST be the value, otherwise the property will not be persisted
+		return (string)$this->getValue();
 	}
 
 }

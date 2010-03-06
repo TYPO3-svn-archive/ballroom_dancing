@@ -83,8 +83,8 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 	 */
 	public function populateAction() {
 		$dances = $this->addDanceData();
-		$this->addAudioData($dances);
-		$this->addTextData($dances);
+		// $this->addAudioData($dances);
+		// $this->addTextData($dances);
 	}
 
 	private function addDanceData() {
@@ -98,7 +98,8 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 		$counter = 0;
 		while (($data = fgetcsv($handle, 1000, "\t")) !== FALSE) {
 			$dance = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Model_Dance', $data[0]);
-			$dance->setType($data[1]);
+			$type = Tx_BallroomDancing_Persistence_TcaSelectItemFactory::createItem('Tx_BallroomDancing_Domain_Model_Dance', 'type', $data[1]);
+			$dance->setType($type);
 
 			$this->danceRepository->add($dance);
 			$dances[$data[0]] = $dance;

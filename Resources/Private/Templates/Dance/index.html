@@ -6,7 +6,7 @@
 			<dl class="tx-ballroomdancing-list">
 				<f:for each="{dances}" as="dance">
 					<dt>
-						<f:link.action action="show" arguments="{dance: dance}">{dance.name}</f:link.action>
+						<f:link.action action="show" arguments="{dance: dance}">{dance.name}</f:link.action> {dance.type.label}
 					</dt>
 					<dd>
 						<f:format.nl2br>{dance.description}</f:format.nl2br><br/>
