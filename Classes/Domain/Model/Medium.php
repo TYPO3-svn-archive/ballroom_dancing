@@ -44,7 +44,7 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	 * The medium's title.
 	 *
 	 * @var string
-	 * @XXXvalidate StringLength(minimum = 1, maximum = 255)
+	 * @validate StringLength(minimum = 1, maximum = 255)
 	 */
 	protected $title;
 
@@ -59,7 +59,7 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	 * The medium's year of production.
 	 *
 	 * @var integer
-	 * @XXXvalidate NumberRange(startRange = 1900, endRange = 2100)
+	 * @validate NumberRange(startRange = 1900, endRange = 2100)
 	 */
 	protected $year;
 
