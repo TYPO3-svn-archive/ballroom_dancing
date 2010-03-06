@@ -83,8 +83,8 @@ class Tx_BallroomDancing_Controller_MaintenanceController extends Tx_Extbase_MVC
 	 */
 	public function populateAction() {
 		$dances = $this->addDanceData();
-		// $this->addAudioData($dances);
-		// $this->addTextData($dances);
+		$this->addAudioData($dances);
+		$this->addTextData($dances);
 	}
 
 	private function addDanceData() {
