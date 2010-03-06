@@ -1,0 +1,31 @@
+<f:layout name="default" />
+<f:section name="content">
+	<f:if condition="{texts}">
+		<f:then>
+			<h3>Books</h3>
+			<dl>
+				<f:for each="{texts}" as="text">
+					<dt>
+						<f:link.action action="show" arguments="{text: text}">{text.title}</f:link.action>
+					</dt>
+					<dd>
+						{text.author}<br />
+						<f:format.nl2br>{text.description}</f:format.nl2br>
+						<ul>
+						<f:for each="{text.dances}" as="dance">
+							<li>
+								<f:link.action action="show" controller="Dance" arguments="{dance: dance}">{dance.name}</f:link.action>
+							</li>
+						</f:for>
+						</ul>
+					<dd>
+				</f:for>
+			</dl>
+		</f:then>
+		<f:else>
+			<p class="tx-ballroomdancing-problem">
+				<strong>Sorry! There are no books listed on this server.</strong>
+			</p>
+		</f:else>
+	</f:if>
+</f:section>

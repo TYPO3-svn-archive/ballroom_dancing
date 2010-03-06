@@ -1,0 +1,18 @@
+<f:layout name="default" />
+
+<f:section name="content">
+	<div class="tx-ballroomdancing-item">
+		<h3>{dance.name}</h3>
+		<p>{dance.type.label}</p>
+		<p><f:format.nl2br>{dance.description}</f:format.nl2br></p>
+		<f:if condition="{dance.figures}">
+			<ul class="tx-ballroomdancing-related-list">
+				<f:for each="{dance.figures}" as="figure">
+					<li>
+						<f:link.action action="show" controller="Figure" arguments="{figure: figure, dance: dance}">{figure.name}</f:link.action>
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+	</div>
+</f:section>

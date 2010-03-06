@@ -1,0 +1,23 @@
+<f:layout name="default" />
+
+<f:section name="content">
+	<div class="tx-ballroomdancing-item">
+		<h3>{figure.name}<f:if condition="{referringDance}"> ({referringDance.name})</f:if></h3>
+		<p><f:format.nl2br>{figure.description}</f:format.nl2br></p>
+		<f:if condition="{figure.dances}">
+			<h4><f:if condition="{referringDance}">Other </f:if>Dances:</h4>
+			<ul class="tx-ballroomdancing-related-list">
+				<f:for each="{figure.dances}" as="dance">
+					<f:if condition="{referringDance}!={dance}">
+						<li>
+							<f:link.action action="show" controller="Dance" arguments="{dance: dance}">{dance.name}</f:link.action>
+						</li>
+					</f:if>
+				</f:for>
+			</ul>
+		</f:if>
+		<f:if condition="{referringDance}">
+			<f:link.action action="show" controller="Dance" arguments="{dance: referringDance}">Back to '{referringDance.name}'</f:link.action>
+		</f:if>
+	</div>
+</f:section>
