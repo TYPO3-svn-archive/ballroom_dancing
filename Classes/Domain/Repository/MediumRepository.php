@@ -29,13 +29,28 @@
 class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_BallroomDancing_Persistence_Repository {
 
 	/**
+	 * @var string
+	 */
+	protected $audioClass = 'Tx_BallroomDancing_Domain_Model_Audio';
+
+	/**
+	 * @var string
+	 */
+	protected $textClass = 'Tx_BallroomDancing_Domain_Model_Text';
+
+	/**
+	 * @var string
+	 */
+	protected $trackClass = 'Tx_BallroomDancing_Domain_Model_Track';
+
+	/**
 	 * Finds tracks by the specified recording
 	 *
 	 * @param Tx_BallroomDancing_Domain_Model_Recording $recording The recording the track must refer to
 	 * @return array The posts
 	 */
 	public function findTracksByRecording(Tx_BallroomDancing_Domain_Model_Recording $recording) {
-		$query = $this->queryFactory->create('Tx_BallroomDancing_Domain_Model_Track');
+		$query = $this->queryFactory->create($this->trackClass);
 		return $query->matching($query->equals('recording', $recording))
 			->execute();
 	}
@@ -66,7 +81,7 @@ class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_BallroomD
 	 * @return integer
 	 */
 	function findAllAudios() {
-		$query = $this->queryFactory->create('Tx_BallroomDancing_Domain_Model_Audio');
+		$query = $this->queryFactory->create($this->audioClass);
 		return $query->matching($query->equals('type', 'audio'))->execute();
 	}
 
@@ -76,7 +91,7 @@ class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_BallroomD
 	 * @return integer
 	 */
 	function findAllTexts() {
-		$query = $this->queryFactory->create('Tx_BallroomDancing_Domain_Model_Text');
+		$query = $this->queryFactory->create($this->textClass);
 		return $query->matching($query->equals('type', 'text'))->execute();
 	}
 
