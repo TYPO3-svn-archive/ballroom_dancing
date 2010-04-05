@@ -27,6 +27,7 @@
 			<label index="tx_ballroomdancing_domain_model_medium.tracks">Tracks:</label>
 			<label index="tx_ballroomdancing_domain_model_medium.entries">Entries:</label>
 			<label index="tx_ballroomdancing_domain_model_medium.author">Author:</label>
+			<label index="tx_ballroomdancing_domain_model_medium.artist">Artist:</label>
 			<label index="tx_ballroomdancing_domain_model_recording">Recording</label>
 			<label index="tx_ballroomdancing_domain_model_recording.artist">Artist:</label>
 			<label index="tx_ballroomdancing_domain_model_recording.description">Short description:</label>
@@ -35,6 +36,7 @@
 			<label index="tx_ballroomdancing_domain_model_track">Audio Track</label>
 			<label index="tx_ballroomdancing_domain_model_track.audio">Audio:</label>
 			<label index="tx_ballroomdancing_domain_model_track.recording">Recording:</label>
+			<label index="tx_ballroomdancing_domain_model_track.number">Track Number:</label>
 			<label index="tx_ballroomdancing_domain_model_entry">Text Entry</label>
 			<label index="tx_ballroomdancing_domain_model_entry.text">Text:</label>
 			<label index="tx_ballroomdancing_domain_model_entry.figure">Figure:</label>

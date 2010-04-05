@@ -141,6 +141,16 @@ class Tx_BallroomDancing_Domain_Model_Figure extends Tx_Extbase_DomainObject_Abs
 		return $this->dances;
 	}
 
+	/**
+	 * Gets the figure's entries.
+	 *
+	 * @return array
+	 */
+	public function getEntries() {
+		$mediumRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
+		return $mediumRepository->findEntriesByFigure($this);
+	}
+
 }
 
 ?>

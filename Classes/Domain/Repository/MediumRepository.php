@@ -44,6 +44,11 @@ class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_BallroomD
 	protected $trackClass = 'Tx_BallroomDancing_Domain_Model_Track';
 
 	/**
+	 * @var string
+	 */
+	protected $entryClass = 'Tx_BallroomDancing_Domain_Model_Entry';
+
+	/**
 	 * Finds tracks by the specified recording
 	 *
 	 * @param Tx_BallroomDancing_Domain_Model_Recording $recording The recording the track must refer to
@@ -52,6 +57,12 @@ class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_BallroomD
 	public function findTracksByRecording(Tx_BallroomDancing_Domain_Model_Recording $recording) {
 		$query = $this->queryFactory->create($this->trackClass);
 		return $query->matching($query->equals('recording', $recording))
+			->execute();
+	}
+
+	public function findEntriesByFigure(Tx_BallroomDancing_Domain_Model_Figure $figure) {
+		$query = $this->queryFactory->create($this->entryClass);
+		return $query->matching($query->equals('figure', $figure))
 			->execute();
 	}
 

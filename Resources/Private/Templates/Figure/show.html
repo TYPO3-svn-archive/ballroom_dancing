@@ -16,6 +16,16 @@
 				</f:for>
 			</ul>
 		</f:if>
+		<f:if condition="{figure.entries}">
+			<h4>Books:</h4>
+			<ul class="tx-ballroomdancing-related-list">
+				<f:for each="{figure.entries}" as="entry">
+					<li>
+						<f:link.action action="show" controller="Text" arguments="{text: entry.text}">{entry.text.title}</f:link.action> (page {entry.number})
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
 		<f:if condition="{referringDance}">
 			<f:link.action action="show" controller="Dance" arguments="{dance: referringDance}">Back to '{referringDance.name}'</f:link.action>
 		</f:if>
