@@ -21,7 +21,7 @@
 			<ul class="tx-ballroomdancing-related-list">
 				<f:for each="{figure.entries}" as="entry">
 					<li>
-						<f:link.action action="show" controller="Text" arguments="{text: entry.text}">{entry.text.title}</f:link.action> (page {entry.number})
+						<f:link.action action="show" controller="Text" arguments="{text: entry.text.uid}">{entry.text.title}</f:link.action> (page {entry.number})
 					</li>
 				</f:for>
 			</ul>
