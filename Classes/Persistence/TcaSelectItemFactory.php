@@ -60,10 +60,10 @@ class Tx_BallroomDancing_Persistence_TcaSelectItemFactory implements t3lib_Singl
 				$label = Tx_Extbase_Utility_Localization::translate($tableName . '.' . $columnName . '.I.' . $value, 'BallroomDancing');
 				if (!$label) {
 					t3lib_div::loadTCA($tableName);
-					$label = Tx_Extbase_Utility_Localization::translate(self::$itemCache[$tableName][$columnName][$value]['label']);
+					$label = Tx_Extbase_Utility_Localization::translate(self::$itemCache[$tableName][$columnName][$value]['label'], 'BallroomDancing');
 				}
 			} else {
-				$label = Tx_Extbase_Utility_Localization::translate(self::$itemCache[$tableName][$columnName][$value]['label']);
+				$label = Tx_Extbase_Utility_Localization::translate(self::$itemCache[$tableName][$columnName][$value]['label'], 'BallroomDancing');
 			}
 			self::$itemCache[$tableName][$columnName][$value]['translatedLabel'] = $label;
 		}
