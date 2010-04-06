@@ -19,7 +19,6 @@ $TCA['tx_ballroomdancing_domain_model_entry'] = array(
 			'config'  => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_ballroomdancing_domain_model_medium',
-				'foreign_class' => 'Tx_BallroomDancing_Domain_Model_Text',	// for the ExtBase data mapper
 			)
 		),
 		'figure' => array(
@@ -27,7 +26,6 @@ $TCA['tx_ballroomdancing_domain_model_entry'] = array(
 			'config'  => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_ballroomdancing_domain_model_figure',
-				'foreign_class' => 'Tx_BallroomDancing_Domain_Model_Figure',	// for the ExtBase data mapper
 			)
 		),
 		'dance' => array(
@@ -35,7 +33,6 @@ $TCA['tx_ballroomdancing_domain_model_entry'] = array(
 			'config'  => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_ballroomdancing_domain_model_dance',
-				'foreign_class' => 'Tx_BallroomDancing_Domain_Model_Dance',	// for the ExtBase data mapper
 			)
 		),
 		'number' => array(

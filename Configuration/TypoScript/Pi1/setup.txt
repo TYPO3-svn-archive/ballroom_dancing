@@ -7,6 +7,8 @@ plugin.tx_ballroomdancing {
 		classes {
 			Tx_BallroomDancing_Domain_Model_Audio.mapping.tableName = tx_ballroomdancing_domain_model_medium
 			Tx_BallroomDancing_Domain_Model_Text.mapping.tableName = tx_ballroomdancing_domain_model_medium
+			Tx_BallroomDancing_Domain_Model_Track.mapping.columns.audio.foreignClass = Tx_BallroomDancing_Domain_Model_Audio
+			Tx_BallroomDancing_Domain_Model_Entry.mapping.columns.text.foreignClass = Tx_BallroomDancing_Domain_Model_Text
 		}
 	}
 	view {

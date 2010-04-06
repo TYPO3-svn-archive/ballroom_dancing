@@ -44,7 +44,6 @@ $TCA['tx_ballroomdancing_domain_model_recording'] = array(
 			'config'  => array(
 				'type' => 'select',
 				'foreign_table' => 'tx_ballroomdancing_domain_model_dance',
-				'foreign_class' => 'Tx_BallroomDancing_Domain_Model_Dance',	// for the ExtBase data mapper
 			)
 		),
 		'tracks' => Array (

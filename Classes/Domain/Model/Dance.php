@@ -61,7 +61,7 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	protected $description = '';
 
 	/**
-	 * The figures of the danced.
+	 * The figures of the dance.
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_BallroomDancing_Domain_Model_Figure>
 	 * @lazy
