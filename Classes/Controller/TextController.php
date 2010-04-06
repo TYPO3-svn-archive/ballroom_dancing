@@ -31,6 +31,12 @@
 class Tx_BallroomDancing_Controller_TextController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * Pattern to build a text repository.
+	 * @var string
+	 */
+	protected $textRepositoryNamePattern = 'Tx_@extension_Domain_Repository_TextRepository';
+
+	/**
 	 * @var Tx_BallroomDancing_Domain_Repository_MediumRepository
 	 */
 	protected $mediumRepository;
@@ -41,7 +47,12 @@ class Tx_BallroomDancing_Controller_TextController extends Tx_Extbase_MVC_Contro
 	 * @return void
 	 */
 	public function initializeAction() {
-		$this->mediumRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_MediumRepository');
+		// be extension friendly
+		$textRepositoryName = str_replace('@extension',
+			$this->request->getControllerExtensionName(),
+			$this->textRepositoryNamePattern
+		);
+		$this->mediumRepository = t3lib_div::makeInstance($textRepositoryNamePattern);
 	}
 
 	/**

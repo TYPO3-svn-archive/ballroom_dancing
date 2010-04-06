@@ -31,6 +31,12 @@
 class Tx_BallroomDancing_Controller_RecordingController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * Pattern to build a recording repository.
+	 * @var string
+	 */
+	protected $recordingRepositoryNamePattern = 'Tx_@extension_Domain_Repository_RecordingRepository';
+
+	/**
 	 * @var Tx_BallroomDancing_Domain_Repository_RecordingRepository
 	 */
 	protected $recordingRepository;
@@ -41,7 +47,12 @@ class Tx_BallroomDancing_Controller_RecordingController extends Tx_Extbase_MVC_C
 	 * @return void
 	 */
 	public function initializeAction() {
-		$this->recordingRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_RecordingRepository');
+		// be extension friendly
+		$recordingRepositoryName = str_replace('@extension',
+			$this->request->getControllerExtensionName(),
+			$this->recordingRepositoryNamePattern
+		);
+		$this->recordingRepository = t3lib_div::makeInstance($recordingRepositoryNamePattern);
 	}
 
 	/**
@@ -62,7 +73,9 @@ class Tx_BallroomDancing_Controller_RecordingController extends Tx_Extbase_MVC_C
 	 */
 	public function showAction(Tx_BallroomDancing_Domain_Model_Recording $recording, Tx_BallroomDancing_Domain_Model_Audio $audio = NULL) {
 		$this->view->assign('recording', $recording);
-		$this->view->assign('referringAudio', $audio);
+		if ($audio) {
+			$this->view->assign('referringAudio', $audio);
+		}
 	}
 
 }

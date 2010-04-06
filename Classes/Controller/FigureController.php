@@ -31,6 +31,12 @@
 class Tx_BallroomDancing_Controller_FigureController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * Pattern to build a figure repository.
+	 * @var string
+	 */
+	protected $figureRepositoryNamePattern = 'Tx_@extension_Domain_Repository_FigureRepository';
+
+	/**
 	 * @var Tx_BallroomDancing_Domain_Repository_FigureRepository
 	 */
 	protected $figureRepository;
@@ -41,7 +47,12 @@ class Tx_BallroomDancing_Controller_FigureController extends Tx_Extbase_MVC_Cont
 	 * @return void
 	 */
 	public function initializeAction() {
-		$this->figureRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_FigureRepository');
+		// be extension friendly
+		$figureRepositoryName = str_replace('@extension',
+			$this->request->getControllerExtensionName(),
+			$this->figureRepositoryNamePattern
+		);
+		$this->figureRepository = t3lib_div::makeInstance($figureRepositoryName);
 	}
 
 	/**
@@ -62,7 +73,9 @@ class Tx_BallroomDancing_Controller_FigureController extends Tx_Extbase_MVC_Cont
 	 */
 	public function showAction(Tx_BallroomDancing_Domain_Model_Figure $figure, Tx_BallroomDancing_Domain_Model_Dance $dance = NULL) {
 		$this->view->assign('figure', $figure);
-		$this->view->assign('referringDance', $dance);
+		if ($dance) {
+			$this->view->assign('referringDance', $dance);
+		}
 	}
 
 }

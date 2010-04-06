@@ -31,6 +31,12 @@
 class Tx_BallroomDancing_Controller_DanceController extends Tx_Extbase_MVC_Controller_ActionController {
 
 	/**
+	 * Pattern to build a dance repository.
+	 * @var string
+	 */
+	protected $danceRepositoryNamePattern = 'Tx_@extension_Domain_Repository_DanceRepository';
+
+	/**
 	 * @var Tx_BallroomDancing_Domain_Repository_DanceRepository
 	 */
 	protected $danceRepository;
@@ -41,7 +47,12 @@ class Tx_BallroomDancing_Controller_DanceController extends Tx_Extbase_MVC_Contr
 	 * @return void
 	 */
 	public function initializeAction() {
-		$this->danceRepository = t3lib_div::makeInstance('Tx_BallroomDancing_Domain_Repository_DanceRepository');
+		// be extension friendly
+		$danceRepositoryName = str_replace('@extension',
+			$this->request->getControllerExtensionName(),
+			$this->danceRepositoryNamePattern
+		);
+		$this->danceRepository = t3lib_div::makeInstance($danceRepositoryName);
 	}
 
 	/**
