@@ -33,8 +33,6 @@ CREATE TABLE tx_ballroomdancing_domain_model_figure (
 	name varchar(255) DEFAULT '' NOT NULL,
 	description mediumtext NOT NULL,
 	dances int(11) DEFAULT '0' NOT NULL,
-	turn tinyint(4) DEFAULT '0' NOT NULL,
-	origin int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY parent (pid,title),
