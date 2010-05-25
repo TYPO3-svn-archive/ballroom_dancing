@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => '',
 	'category' => 'example',
 	'shy' => 0,
-	'version' => '0.0.3',
+	'version' => '1.1.0',
 	'dependencies' => 'extbase',
 	'conflicts' => '',
 	'priority' => '',
@@ -36,7 +36,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'depends' => array(
 			'php' => '5.2.0-0.0.0',
 			'typo3' => '4.3.dev-4.3.99',
-			'extbase' => '',
+			'extbase' => '1.1.0',
 		),
 		'conflicts' => array(
 		),
