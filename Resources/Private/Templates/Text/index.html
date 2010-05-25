@@ -14,7 +14,7 @@
 						<ul>
 						<f:for each="{text.dances}" as="dance">
 							<li>
-								<f:link.action action="show" controller="Dance" arguments="{dance: dance}">{dance.name}</f:link.action>
+								<f:link.action action="show" controller="Dance" arguments="{dance: dance.uid}">{dance.name}</f:link.action>
 							</li>
 						</f:for>
 						</ul>
