@@ -52,7 +52,7 @@ class Tx_BallroomDancing_Controller_RecordingController extends Tx_Extbase_MVC_C
 			$this->request->getControllerExtensionName(),
 			$this->recordingRepositoryNamePattern
 		);
-		$this->recordingRepository = t3lib_div::makeInstance($recordingRepositoryNamePattern);
+		$this->recordingRepository = t3lib_div::makeInstance($recordingRepositoryName);
 	}
 
 	/**
