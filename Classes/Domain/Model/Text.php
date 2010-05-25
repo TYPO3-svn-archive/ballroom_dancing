@@ -24,7 +24,7 @@
 ***************************************************************/
 
 /**
- * An text medium (eg. a book)
+ * A text medium (eg. a book)
  *
  * @version $Id:$
  * @copyright Copyright belongs to the respective authors
@@ -129,9 +129,26 @@ class Tx_BallroomDancing_Domain_Model_Text extends Tx_BallroomDancing_Domain_Mod
 	}
 
 	/**
+	 * Returns the text medium's entries.
+	 *
+	 * @return array The entries of the text medium grouped by dance
+	 */
+	public function getEntriesGroupedByDance() {
+		$dances = array();
+		foreach ($this->entries as $entry) {
+			$dance = $entry->getDance();
+			if (!isset($dances[$dance->getName($dance)])) {
+				$dances[$dance->getName($dance)]['dance'] = $dance;
+			}
+			$dances[$dance->getName($dance)]['entries'][] = $entry;
+		}
+		return $dances;
+	}
+
+	/**
 	 * Returns the text medium's dances.
 	 *
-	 * @return array The dances of the text medium
+	 * @return SplObjectStorage The dances of the text medium
 	 */
 	public function getDances() {
 		$dances = new SplObjectStorage();
