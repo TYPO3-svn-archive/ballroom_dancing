@@ -35,7 +35,7 @@ CREATE TABLE tx_ballroomdancing_domain_model_figure (
 	dances int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid,title),
+	KEY parent (pid,name),
 );
 
 #
