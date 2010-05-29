@@ -35,11 +35,7 @@ class Tx_BallroomDancing_Persistence_TcaSelectItemFactory implements t3lib_Singl
 
 	public function createItem($className, $propertyName, $value) {
 		if (!is_object(self::$dataMapper)) {
-			$persistenceManager = Tx_Extbase_Dispatcher::getPersistenceManager();
-
-			self::$dataMapper = t3lib_div::makeInstance('Tx_Extbase_Persistence_Mapper_DataMapper');
-			self::$dataMapper->injectIdentityMap($persistenceManager->getBackend()->getIdentityMap());
-			self::$dataMapper->injectPersistenceManager($persistenceManager);
+			self::$dataMapper = Tx_Extbase_Dispatcher::getPersistenceManager()->getBackend()->getDataMapper();
 		}
 
 		$tableName = self::$dataMapper->convertClassNameToTableName($className);
