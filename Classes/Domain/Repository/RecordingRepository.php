@@ -26,7 +26,7 @@
 /**
  * A repository for Recordings
  */
-class Tx_BallroomDancing_Domain_Repository_RecordingRepository extends Tx_BallroomDancing_Persistence_Repository {			
+class Tx_BallroomDancing_Domain_Repository_RecordingRepository extends Tx_Extbase_Persistence_Repository {			
 }
 
 ?>

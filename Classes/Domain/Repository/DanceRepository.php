@@ -26,7 +26,7 @@
 /**
  * A repository for Dances
  */
-class Tx_BallroomDancing_Domain_Repository_DanceRepository extends Tx_BallroomDancing_Persistence_Repository {			
+class Tx_BallroomDancing_Domain_Repository_DanceRepository extends Tx_Extbase_Persistence_Repository {			
 }
 
 ?>

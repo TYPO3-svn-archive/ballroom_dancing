@@ -26,7 +26,7 @@
 /**
  * A repository for Media (Audio, Text, ...) and the aggregate members Track and Entry
  */
-class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_BallroomDancing_Persistence_Repository {
+class Tx_BallroomDancing_Domain_Repository_MediumRepository extends Tx_Extbase_Persistence_Repository {
 
 	/**
 	 * @var string
