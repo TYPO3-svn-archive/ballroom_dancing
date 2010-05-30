@@ -49,7 +49,8 @@ class Tx_BallroomDancing_Domain_Model_Dance extends Tx_Extbase_DomainObject_Abst
 	/**
 	 * The dance's type.
 	 *
-	 * @var Tx_BallroomDancing_Domain_Property_Dance_Type
+	 * note: real type is Tx_BallroomDancing_Domain_Property_Dance_Type, but the data mapper cannot map non-db based value objects
+	 * @var string
 	 */
 	protected $type;
 
