@@ -116,7 +116,7 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	/**
 	 * Sets the medium's year of production.
 	 *
-	 * @return integer The production year of the medium
+	 * @return void
 	 */
 	public function setYear($year) {
 		$this->year = $year;
