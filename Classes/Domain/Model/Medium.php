@@ -59,7 +59,7 @@ class Tx_BallroomDancing_Domain_Model_Medium extends Tx_Extbase_DomainObject_Abs
 	 * The medium's year of production.
 	 *
 	 * @var integer
-	 * @validate NumberRange(startRange = 1900, endRange = 2100)
+	 * @validate Tx_BallroomDancing_Validation_Validator_NumberRangeOrZeroValidator(startRange = 1900, endRange = 2100)
 	 */
 	protected $year;
 
